@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat;
 public class Game extends SurfaceView implements SurfaceHolder.Callback
 {
     private final Player player;
+    private final Joystick joystick;
     private  GameLoop gameLoop;
 
     public Game(Context context)
@@ -27,6 +28,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         //Initialize Player Character
         player = new Player(getContext(), 1000, 500, 30);
+        
+        //Initialize Joystick
+        joystick = new Joystick(getContext(), 200, 1200, 100, 50);
 
         // Enable view's focus event for touch mode
         setFocusable(true);
@@ -57,8 +61,17 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         switch(event.getAction())
         {
             case MotionEvent.ACTION_DOWN:
-                player.setPosition((double) event.getX(), (double) event.getY());
+                joystick.setIsPressed(true);
                 return true;
+            case MotionEvent.ACTION_MOVE:
+                if(joystick.getPressed())
+                {
+                    joystick.setActuator((double) event.getX(), (double) event.getY());
+                }
+                return true;
+            case MotionEvent.ACTION_UP:
+                joystick.setIsPressed(false);
+                joystick.resetActuator();
         }
         return super.onTouchEvent(event);
     }
@@ -72,6 +85,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         drawFPS(canvas);
         drawUPS(canvas);
 
+        joystick.draw(canvas);
         player.draw(canvas);
     }
 
