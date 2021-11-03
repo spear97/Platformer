@@ -71,4 +71,20 @@ public class Joystick
         innerX = outerX;
         innerY = outerY;
     }
+
+    public double dist(double x, double y)
+    {
+        return Math.sqrt(Math.pow(x - outerX, 2) + Math.pow(y - outerY, 2));
+    }
+
+    public double getInnerX()
+    {
+        return innerX;
+    }
+
+    public double getOuterX()
+    {
+        return outerX;
+    }
+
 }

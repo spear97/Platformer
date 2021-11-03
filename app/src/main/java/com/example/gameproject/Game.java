@@ -66,7 +66,10 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
             case MotionEvent.ACTION_MOVE:
                 if(joystick.getPressed())
                 {
-                    joystick.setActuator((double) event.getX(), (double) event.getY());
+                    if(joystick.dist((double) event.getX(), (double) event.getY()) < 100)
+                    {
+                        joystick.setActuator((double) event.getX(), (double) event.getY());
+                    }
                 }
                 return true;
             case MotionEvent.ACTION_UP:
