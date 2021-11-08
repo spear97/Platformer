@@ -9,11 +9,15 @@ import androidx.core.content.ContextCompat;
 
 public class Player
 {
-
+    private static final double SPEED_PIXELS_PER_SECOND = 400.0;
+    private static final double MAX_SPEED = SPEED_PIXELS_PER_SECOND/GameLoop.MAX_UPS;
     private double x;
     private double y;
     private double r;
     private Paint paint;
+    private double velocityX;
+    private double velocityY;
+
 
     public Player(Context context, double x, double y, double r)
     {
@@ -31,9 +35,12 @@ public class Player
         canvas.drawCircle((float) x, (float) y, (float) r, paint);
     }
 
-    public void update()
+    public void update(Joystick joystick)
     {
-
+        velocityX = joystick.getActuatorX()*MAX_SPEED;
+        velocityY = joystick.getActuatorY()*MAX_SPEED;
+        x += velocityX;
+        y += velocityY;
     }
 
     public void setPosition(double x, double y)

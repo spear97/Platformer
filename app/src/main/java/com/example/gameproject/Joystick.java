@@ -1,90 +1,140 @@
 package com.example.gameproject;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import androidx.core.content.ContextCompat;
-
 public class Joystick
 {
-    private double outerX;
-    private double outerY;
-    private double outerR;
-    private Paint outerPaint;
+    private int outerCircleCenterPositionX;
+    private int outerCircleCenterPositionY;
+    private int innerCircleCenterPositionX;
+    private int innerCircleCenterPositionY;
+    private final int outerCircleRadius;
+    private final int innerCircleRadius;
 
-    private double innerX;
-    private double innerY;
-    private double innerR;
-    private Paint innerPaint;
+    private Paint outerCirclePaint;
+    private Paint innerCirclePaint;
+    private double joystickCenterToTouchDistance;
     private boolean isPressed;
+    private double actuatorX;
+    private double actuatorY;
 
-    public Joystick(Context context, double x, double y, double r1, double r2)
+    public Joystick(int centerPositionX, int centerPositionY, int outerCircleRadius, int innerCircleRadius)
     {
-        outerX = x;
-        outerY = y;
-        outerR = r1;
+        //Outer and inner circle make up the joystick
+        outerCircleCenterPositionX = centerPositionX;
+        outerCircleCenterPositionY = centerPositionY;
+        innerCircleCenterPositionX = centerPositionX;
+        innerCircleCenterPositionY = centerPositionY;
 
-        outerPaint = new Paint();
-        outerPaint.setColor(Color.GRAY);
-        outerPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        // Radii of circles
+        this.outerCircleRadius = outerCircleRadius;
+        this.innerCircleRadius = innerCircleRadius;
 
-        innerX = x;
-        innerY = y;
-        innerR = r2;
+        // paint of circles
+        outerCirclePaint = new Paint();
+        outerCirclePaint.setColor(Color.GRAY);
+        outerCirclePaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
-        innerPaint = new Paint();
-        innerPaint.setColor(Color.BLUE);
-        innerPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        innerCirclePaint = new Paint();
+        innerCirclePaint.setColor(Color.BLUE);
+        innerCirclePaint.setStyle(Paint.Style.FILL_AND_STROKE);
     }
 
     public void draw(Canvas canvas)
     {
-        canvas.drawCircle((float) outerX, (float) outerY, (float) outerR, outerPaint);
-        canvas.drawCircle((float) innerX, (float) innerY, (float) innerR, innerPaint);
+        //Draw Outer Circle
+        canvas.drawCircle(outerCircleCenterPositionX,
+                          outerCircleCenterPositionY,
+                          outerCircleRadius,
+                          outerCirclePaint);
+
+        //Draw Inner Circle
+        canvas.drawCircle(innerCircleCenterPositionX,
+                          innerCircleCenterPositionY,
+                          innerCircleRadius,
+                          innerCirclePaint);
     }
 
     public void update()
     {
-
+        //Update the Position of the Inner for each Tick (or Frame)
+        updateInnerCirclePosition();
     }
 
-    public void setActuator(double x, double y)
+    private void updateInnerCirclePosition()
     {
-        innerX = x;
-        innerY = y;
+        //Set the Inner Circle's X Position
+        innerCircleCenterPositionX = (int)(outerCircleCenterPositionX + actuatorX*outerCircleRadius);
+
+        //Set the Inner Circle's Y Position
+        innerCircleCenterPositionY = (int)(outerCircleCenterPositionY + actuatorY*outerCircleRadius);
     }
 
-    public void setIsPressed(boolean b)
+    public boolean isPressed(double touchPositionX, double touchPositionY)
     {
-        isPressed = b;
+        //Calculate the Distance between the Touch Position and the Outer Circle's Position
+        joystickCenterToTouchDistance = Math.sqrt(
+                Math.pow(outerCircleCenterPositionX-touchPositionX,2) +
+                Math.pow(outerCircleCenterPositionY-touchPositionY,2)
+        );
+        return joystickCenterToTouchDistance < outerCircleRadius;
     }
 
-    public boolean getPressed()
+    //Switch to Indicate the Joystick is being Pressed
+    public void setIsPressed(boolean isPressed)
+    {
+        this.isPressed = isPressed;
+    }
+
+    //Retrieve the current Value of IsPressed
+    public boolean getIsPressed()
     {
         return isPressed;
     }
 
+    public void setActuator(double touchPositionX, double touchPositionY)
+    {
+        //Calculate the Distance between the Touch Position and the Outer Circle's Position
+        double deltaX = touchPositionX - outerCircleCenterPositionX;
+        double deltaY = touchPositionY - outerCircleCenterPositionY;
+        double deltaDistance = Math.sqrt(Math.pow(deltaX, 2)+Math.pow(deltaY, 2));
+
+        //If deltaDistance is less than the size of the Outer Circle
+        if(deltaDistance < outerCircleRadius)
+        {
+            actuatorX = deltaX/outerCircleRadius;
+            actuatorY = deltaY/outerCircleRadius;
+        }
+
+        //If deltaDistance is greater than the size of the Outer Circle
+        else
+        {
+            actuatorX = deltaX/deltaDistance;
+            actuatorY = deltaY/deltaDistance;
+        }
+    }
+
+    //Reset the Position of the inner Circle
     public void resetActuator()
     {
-        innerX = outerX;
-        innerY = outerY;
+        //Set ActuatorX to 0.0
+        actuatorX = 0.0;
+
+        //Set ActuatorY to 0.0
+        actuatorY = 0.0;
     }
 
-    public double dist(double x, double y)
+    //Retrieve the value of actuatorX
+    public double getActuatorX()
     {
-        return Math.sqrt(Math.pow(x - outerX, 2) + Math.pow(y - outerY, 2));
+        return actuatorX;
     }
 
-    public double getInnerX()
+    //Retrieve the value of actuatorY
+    public double getActuatorY()
     {
-        return innerX;
+        return actuatorY;
     }
-
-    public double getOuterX()
-    {
-        return outerX;
-    }
-
 }
