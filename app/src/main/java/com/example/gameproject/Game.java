@@ -3,9 +3,13 @@ package com.example.gameproject;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.WindowManager;
+
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
@@ -17,6 +21,10 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
     private Joystick joystick;
 
+    private int height;
+
+    private int width;
+
     public Game(Context context)
     {
         super(context);
@@ -25,6 +33,13 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         SurfaceHolder surfaceHolder = getHolder();
         surfaceHolder.addCallback(this);
 
+        // Get the height and width of the Device Game is Launched on
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(metrics);
+        int height = metrics.heightPixels;
+        int width = metrics.widthPixels;
+
         // Set gameLoop to be able to handle Execution of Game Functionality
         gameLoop = new GameLoop(surfaceHolder, this);
 
@@ -32,11 +47,12 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         player = new Player(getContext(), 1000, 500, 30);
         
         //Initialize Joystick
-        joystick = new Joystick(275, 700, 70, 40);
+        joystick = new Joystick(200, height-200, 140, 70);
 
         // Enable view's focus event for touch mode
         setFocusable(true);
     }
+
 
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder)
