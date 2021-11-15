@@ -35,7 +35,7 @@ public class HealthBar
         float x = (float) player.x;
         float y = (float) player.y;
         float dist = 45;
-        float percentage = (float) player.getCurrHealth() / player.getMaxHealth();
+        float percentage = (float) player.currHealth / player.maxHealth;
 
         //Draw HealthBar
         float Left = x - width/2,

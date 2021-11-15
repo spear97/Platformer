@@ -17,14 +17,4 @@ public abstract class GameObject
         this.x = x;
         this.y = y;
     }
-
-    protected int getCurrHealth()
-    {
-        return currHealth;
-    }
-
-    protected int getMaxHealth()
-    {
-        return maxHealth;
-    }
 }
