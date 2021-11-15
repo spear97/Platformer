@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -12,15 +13,12 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
-import com.example.gameproject.object.Enemy;
-import com.example.gameproject.object.Player;
-
 public class Game extends SurfaceView implements SurfaceHolder.Callback
 {
     private final Player player;
+    private Enemy enemy;
     private GameLoop gameLoop;
     private Joystick joystick;
-    private Enemy enemy;
     private int height;
     private int width;
 
@@ -39,15 +37,17 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         int height = metrics.heightPixels;
         int width = metrics.widthPixels;
 
-        //GameObjects
-            // Set gameLoop to be able to handle Execution of Game Functionality
+        // Set gameLoop to be able to handle Execution of Game Functionality
         gameLoop = new GameLoop(surfaceHolder, this);
-            //Initialize Player Character
-        player = new Player(getContext(), joystick, 1000, 500, 30);
-            //Initialize Joystick
+
+        //Initialize Player Character
+        player = new Player(getContext(), width/2, height/2, 30);
+
+        //Initialize Enemy
+        enemy = new Enemy(getContext(), 1000, 500, 30);
+
+        //Initialize Joystick
         joystick = new Joystick(200, height-200, 140, 70);
-            //Initialize Enemy
-        enemy = new Enemy(1, 1);
 
         // Enable view's focus event for touch mode
         setFocusable(true);
@@ -108,7 +108,8 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         drawUPS(canvas);
 
         joystick.draw(canvas);
-        //player.draw(canvas);
+        player.draw(canvas);
+        enemy.draw(canvas);
     }
 
     //Display the Number of Frames Per Second being Run
@@ -135,7 +136,8 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
     public void update()
     {
-        //player.update(joystick);
+        player.update(joystick);
+        enemy.update();
         joystick.update();
     }
 }
