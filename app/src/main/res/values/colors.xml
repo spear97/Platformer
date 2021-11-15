@@ -9,6 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="player">#F82718</color>
     <color name="evil">#800080</color>
-    <color name="healthBarBorder">#808080</color>
     <color name="healthBar">#00FF00</color>
 </resources>
