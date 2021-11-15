@@ -3,13 +3,12 @@ package com.example.gameproject;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-<<<<<<< HEAD
 import android.util.DisplayMetrics;
-=======
->>>>>>> parent of d52f40f (Moved and Scaled Joystick)
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.WindowManager;
+
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
@@ -21,12 +20,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private final Player player;
     private GameLoop gameLoop;
     private Joystick joystick;
-<<<<<<< HEAD
     private Enemy enemy;
     private int height;
     private int width;
-=======
->>>>>>> parent of d52f40f (Moved and Scaled Joystick)
 
     public Game(Context context)
     {
@@ -36,7 +32,6 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         SurfaceHolder surfaceHolder = getHolder();
         surfaceHolder.addCallback(this);
 
-<<<<<<< HEAD
         // Get the height and width of the Device Game is Launched on
         DisplayMetrics metrics = new DisplayMetrics();
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
@@ -53,20 +48,11 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         joystick = new Joystick(200, height-200, 140, 70);
             //Initialize Enemy
         enemy = new Enemy(1, 1);
-=======
-        // Set gameLoop to be able to handle Execution of Game Functionality
-        gameLoop = new GameLoop(surfaceHolder, this);
-
-        //Initialize Player Character
-        player = new Player(getContext(), 1000, 500, 30);
-        
-        //Initialize Joystick
-        joystick = new Joystick(275, 700, 70, 40);
->>>>>>> parent of d52f40f (Moved and Scaled Joystick)
 
         // Enable view's focus event for touch mode
         setFocusable(true);
     }
+
 
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder)
