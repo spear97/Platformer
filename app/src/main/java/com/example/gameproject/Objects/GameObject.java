@@ -1,4 +1,4 @@
-package com.example.gameproject;
+package com.example.gameproject.Objects;
 
 import android.graphics.Paint;
 

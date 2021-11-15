@@ -1,10 +1,13 @@
-package com.example.gameproject;
+package com.example.gameproject.Objects;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import androidx.core.content.ContextCompat;
+
+import com.example.gameproject.Objects.Player.Player;
+import com.example.gameproject.R;
 
 public class HealthBar
 {
@@ -29,8 +32,8 @@ public class HealthBar
     public void draw(Canvas canvas)
     {
         //Calculate the percentage of the HealthBar
-        float x = (float) player.getX();
-        float y = (float) player.getY();
+        float x = (float) player.x;
+        float y = (float) player.y;
         float dist = 45;
         float percentage = (float) player.getCurrHealth() / player.getMaxHealth();
 

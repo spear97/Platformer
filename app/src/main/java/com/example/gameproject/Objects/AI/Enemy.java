@@ -1,16 +1,19 @@
-package com.example.gameproject;
+package com.example.gameproject.Objects.AI;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.view.MotionEvent;
 
 import androidx.core.content.ContextCompat;
+
+import com.example.gameproject.Infrastructure.GameLoop;
+import com.example.gameproject.Objects.GameObject;
+import com.example.gameproject.R;
 
 public class Enemy extends GameObject
 {
     private static final double SPEED_PIXELS_PER_SECOND = 400.0;
-    private static final double MAX_SPEED = SPEED_PIXELS_PER_SECOND/GameLoop.MAX_UPS;
+    private static final double MAX_SPEED = SPEED_PIXELS_PER_SECOND/ GameLoop.MAX_UPS;
     private double r;
 
 

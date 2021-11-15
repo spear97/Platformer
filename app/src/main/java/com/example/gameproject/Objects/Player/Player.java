@@ -1,4 +1,4 @@
-package com.example.gameproject;
+package com.example.gameproject.Objects.Player;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,10 +6,16 @@ import android.graphics.Paint;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.gameproject.Infrastructure.GameLoop;
+import com.example.gameproject.Infrastructure.Joystick;
+import com.example.gameproject.Objects.GameObject;
+import com.example.gameproject.Objects.HealthBar;
+import com.example.gameproject.R;
+
 public class Player extends GameObject
 {
     private static final double SPEED_PIXELS_PER_SECOND = 600.0;
-    private static final double MAX_SPEED = SPEED_PIXELS_PER_SECOND/GameLoop.MAX_UPS;
+    private static final double MAX_SPEED = SPEED_PIXELS_PER_SECOND/ GameLoop.MAX_UPS;
     private double r;
     private final HealthBar healthbar;
     private Paint paint;

@@ -1,10 +1,8 @@
-package com.example.gameproject;
+package com.example.gameproject.Infrastructure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.Display;
-import android.view.Window;
 import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {

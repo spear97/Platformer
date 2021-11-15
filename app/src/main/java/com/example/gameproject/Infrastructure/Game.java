@@ -1,4 +1,4 @@
-package com.example.gameproject;
+package com.example.gameproject.Infrastructure;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -11,6 +11,10 @@ import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+
+import com.example.gameproject.Objects.AI.Enemy;
+import com.example.gameproject.Objects.Player.Player;
+import com.example.gameproject.R;
 
 public class Game extends SurfaceView implements SurfaceHolder.Callback
 {
