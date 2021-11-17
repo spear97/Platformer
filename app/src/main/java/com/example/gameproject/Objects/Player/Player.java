@@ -33,9 +33,6 @@ public class Player extends GameObject
         this.r = r;
 
         //Set Look of Player
-        /*paint = new Paint();
-        int color = ContextCompat.getColor(context, R.color.player);
-        paint.setColor(color);*/
         BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
         bitmapOptions.inScaled = false;
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.playerspritesheet);
@@ -71,5 +68,8 @@ public class Player extends GameObject
 
         //Set y
         y += velocityY;
+
+        //
+        sprite.update(new Rect((int)x-64, (int)y-30, (int)x+41, (int)y+234));
     }
 }

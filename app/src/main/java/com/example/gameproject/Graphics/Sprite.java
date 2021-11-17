@@ -15,12 +15,16 @@ public class Sprite
     {
         this.bitmap = bitmap; //The Bitmap that will be used
         this.rect = rect;
-        this.transform = rect;
     }
 
     //Draw the Sprite to the World
     public void draw(Canvas canvas)
     {
         canvas.drawBitmap(bitmap, rect, transform, null);
+    }
+
+    public void update(Rect rect)
+    {
+        transform = rect;
     }
 }
