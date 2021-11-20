@@ -47,7 +47,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         player = new Player(getContext(), width/2, height/2, 30);
 
         //Initialize Enemy
-        enemy = new Enemy(getContext(), 1000, 500, 30);
+        //enemy = new Enemy(getContext(), 1000, 500, 30);
 
         //Initialize Joystick
         joystick = new Joystick(200, height-200, 140, 70);
@@ -112,7 +112,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         joystick.draw(canvas);
         player.draw(canvas);
-        enemy.draw(canvas);
+        //enemy.draw(canvas);
     }
 
     //Display the Number of Frames Per Second being Run
@@ -140,7 +140,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     public void update()
     {
         player.update(joystick);
-        enemy.update();
+        //enemy.update();
         joystick.update();
     }
 }
