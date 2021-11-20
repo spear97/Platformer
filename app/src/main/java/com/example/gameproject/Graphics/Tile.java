@@ -1,0 +1,45 @@
+package com.example.gameproject.Graphics;
+
+import android.graphics.Canvas;
+import android.graphics.Rect;
+
+abstract class Tile
+{
+
+    protected final Rect mapLocationRect;
+
+    public Tile(Rect mapLocationRect)
+    {
+        this.mapLocationRect = mapLocationRect;
+    }
+
+    public enum TileType
+    {
+        DIRT_TILE,
+        GRASS_TILE,
+        SKY_TILE,
+        WATER_TILE,
+    }
+
+    public static Tile getTile(int idxTileType, SpriteSheet spriteSheet, Rect mapLocationRect)
+    {
+
+        switch(TileType.values()[idxTileType])
+        {
+
+            case DIRT_TILE:
+                return new DirtTile(spriteSheet, mapLocationRect);
+            case GRASS_TILE:
+                return new GrassTile(spriteSheet, mapLocationRect);
+            case SKY_TILE:
+                return new SkyTile(spriteSheet, mapLocationRect);
+            case WATER_TILE:
+                return new WaterTile(spriteSheet, mapLocationRect);
+            default:
+                return null;
+        }
+
+    }
+
+    public abstract void draw(Canvas canvas);
+}

@@ -14,7 +14,8 @@ public class HealthBar {
     private Paint borderPaint, healthPaint;
     private int width, height, margin; // pixel value
 
-    public HealthBar(Context context, Player player) {
+    public HealthBar(Context context, Player player)
+    {
         this.player = player;
         this.width = 100;
         this.height = 20;
@@ -29,7 +30,8 @@ public class HealthBar {
         healthPaint.setColor(healthColor);
     }
 
-    public void draw(Canvas canvas, GameDisplay gameDisplay) {
+    public void draw(Canvas canvas, GameDisplay gameDisplay)
+    {
         float x = (float) player.getPositionX();
         float y = (float) player.getPositionY();
         float distanceToPlayer = 30;

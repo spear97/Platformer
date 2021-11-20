@@ -7,7 +7,8 @@ import androidx.core.content.ContextCompat;
 import com.example.gameproject.Infrastructure.GameLoop;
 import com.example.gameproject.R;
 
-public class Enemy extends Circle {
+public class Enemy extends Circle
+{
 
     private static final double SPEED_PIXELS_PER_SECOND = Player.SPEED_PIXELS_PER_SECOND*0.6;
     private static final double MAX_SPEED = SPEED_PIXELS_PER_SECOND / GameLoop.MAX_UPS;
@@ -17,7 +18,8 @@ public class Enemy extends Circle {
     private static double updatesUntilNextSpawn = UPDATES_PER_SPAWN;
     private Player player;
 
-    public Enemy(Context context, Player player, double positionX, double positionY, double radius) {
+    public Enemy(Context context, Player player, double positionX, double positionY, double radius)
+    {
         super(context, ContextCompat.getColor(context, R.color.enemy), positionX, positionY, radius);
         this.player = player;
     }
@@ -27,7 +29,8 @@ public class Enemy extends Circle {
      * @param context
      * @param player
      */
-    public Enemy(Context context, Player player) {
+    public Enemy(Context context, Player player)
+    {
         super(
                 context,
                 ContextCompat.getColor(context, R.color.enemy),
@@ -43,17 +46,22 @@ public class Enemy extends Circle {
      * per minute (see SPAWNS_PER_MINUTE at top)
      * @return
      */
-    public static boolean readyToSpawn() {
-        if (updatesUntilNextSpawn <= 0) {
+    public static boolean readyToSpawn()
+    {
+        if (updatesUntilNextSpawn <= 0)
+        {
             updatesUntilNextSpawn += UPDATES_PER_SPAWN;
             return true;
-        } else {
+        }
+        else
+        {
             updatesUntilNextSpawn --;
             return false;
         }
     }
 
-    public void update() {
+    public void update()
+    {
         // =========================================================================================
         //   Update velocity of the enemy so that the velocity is in the direction of the player
         // =========================================================================================
@@ -69,10 +77,13 @@ public class Enemy extends Circle {
         double directionY = distanceToPlayerY/distanceToPlayer;
 
         // Set velocity in the direction to the player
-        if(distanceToPlayer > 0) { // Avoid division by zero
+        if(distanceToPlayer > 0)
+        { // Avoid division by zero
             velocityX = directionX*MAX_SPEED;
             velocityY = directionY*MAX_SPEED;
-        } else {
+        }
+        else
+        {
             velocityX = 0;
             velocityY = 0;
         }

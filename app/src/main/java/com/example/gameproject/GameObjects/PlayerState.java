@@ -1,8 +1,10 @@
 package com.example.gameproject.GameObjects;
 
-public class PlayerState {
+public class PlayerState
+{
 
-    public enum State {
+    public enum State
+    {
         NOT_MOVING,
         STARED_MOVING,
         IS_MOVING
@@ -11,17 +13,21 @@ public class PlayerState {
     private Player player;
     private State state;
 
-    public PlayerState(Player player) {
+    public PlayerState(Player player)
+    {
         this.player = player;
         this.state = State.NOT_MOVING;
     }
 
-    public State getState() {
+    public State getState()
+    {
         return state;
     }
 
-    public void update() {
-        switch (state) {
+    public void update()
+    {
+        switch (state)
+        {
             case NOT_MOVING:
                 if (player.velocityX != 0 || player.velocityY != 0)
                     state = State.STARED_MOVING;

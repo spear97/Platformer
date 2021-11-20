@@ -22,7 +22,6 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private final Performance performance;
     private final Player player;
     private final GameDisplay gameDisplay;
-    //private Enemy enemy;
     private GameLoop gameLoop;
     private Joystick joystick;
     private int height;
@@ -121,13 +120,11 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         joystick.draw(canvas);
         player.draw(canvas, gameDisplay);
-        //enemy.draw(canvas);
     }
 
     public void update()
     {
         joystick.update();
         player.update();
-        //enemy.update();
     }
 }

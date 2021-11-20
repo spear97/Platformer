@@ -8,15 +8,18 @@ import androidx.core.content.ContextCompat;
 
 import com.example.gameproject.R;
 
-public class GameOver {
+public class GameOver
+{
 
     private Context context;
 
-    public GameOver(Context context) {
+    public GameOver(Context context)
+    {
         this.context = context;
     }
 
-    public void draw(Canvas canvas) {
+    public void draw(Canvas canvas)
+    {
         String text = "Game Over";
 
         float x = 800;

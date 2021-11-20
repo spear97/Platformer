@@ -4,7 +4,8 @@ import android.graphics.Rect;
 
 import com.example.gameproject.GameObjects.GameObject;
 
-public class GameDisplay {
+public class GameDisplay
+{
     public final Rect DISPLAY_RECT;
     private final int widthPixels;
     private final int heightPixels;
@@ -16,7 +17,8 @@ public class GameDisplay {
     private double gameCenterX;
     private double gameCenterY;
 
-    public GameDisplay(int widthPixels, int heightPixels, GameObject centerObject) {
+    public GameDisplay(int widthPixels, int heightPixels, GameObject centerObject)
+    {
         this.widthPixels = widthPixels;
         this.heightPixels = heightPixels;
         DISPLAY_RECT = new Rect(0, 0, widthPixels, heightPixels);
@@ -29,7 +31,8 @@ public class GameDisplay {
         update();
     }
 
-    public void update() {
+    public void update()
+    {
         gameCenterX = centerObject.getPositionX();
         gameCenterY = centerObject.getPositionY();
 
@@ -37,15 +40,18 @@ public class GameDisplay {
         gameToDisplayCoordinatesOffsetY = displayCenterY - gameCenterY;
     }
 
-    public double gameToDisplayCoordinatesX(double x) {
+    public double gameToDisplayCoordinatesX(double x)
+    {
         return x + gameToDisplayCoordinatesOffsetX;
     }
 
-    public double gameToDisplayCoordinatesY(double y) {
+    public double gameToDisplayCoordinatesY(double y)
+    {
         return y + gameToDisplayCoordinatesOffsetY;
     }
 
-    public Rect getGameRect() {
+    public Rect getGameRect()
+    {
         return new Rect(
                 (int) (gameCenterX - widthPixels/2),
                 (int) (gameCenterY - heightPixels/2),

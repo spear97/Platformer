@@ -12,7 +12,8 @@ import com.example.gameproject.Infrastructure.Joystick;
 import com.example.gameproject.R;
 import com.example.gameproject.Infrastructure.Utils;
 
-public class Player extends Circle {
+public class Player extends Circle
+{
     public static final double SPEED_PIXELS_PER_SECOND = 400.0;
     private static final double MAX_SPEED = SPEED_PIXELS_PER_SECOND / GameLoop.MAX_UPS;
     public static final int MAX_HEALTH_POINTS = 5;
@@ -22,7 +23,8 @@ public class Player extends Circle {
     private Animator animator;
     private PlayerState playerState;
 
-    public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Animator animator) {
+    public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Animator animator)
+    {
         super(context, ContextCompat.getColor(context, R.color.player), positionX, positionY, radius);
         this.joystick = joystick;
         this.healthBar = new HealthBar(context, this);
@@ -30,7 +32,8 @@ public class Player extends Circle {
         this.playerState = new PlayerState(this);
     }
 
-    public void update() {
+    public void update()
+    {
 
         // Update velocity based on actuator of joystick
         velocityX = joystick.getActuatorX()*MAX_SPEED;
@@ -41,7 +44,8 @@ public class Player extends Circle {
         positionY += velocityY;
 
         // Update direction
-        if (velocityX != 0 || velocityY != 0) {
+        if (velocityX != 0 || velocityY != 0)
+        {
             // Normalize velocity to get direction (unit vector of velocity)
             double distance = Utils.getDistanceBetweenPoints(0, 0, velocityX, velocityY);
             directionX = velocityX/distance;
@@ -51,23 +55,27 @@ public class Player extends Circle {
         playerState.update();
     }
 
-    public void draw(Canvas canvas, GameDisplay gameDisplay) {
+    public void draw(Canvas canvas, GameDisplay gameDisplay)
+    {
         animator.draw(canvas, gameDisplay, this);
 
         healthBar.draw(canvas, gameDisplay);
     }
 
-    public int getHealthPoint() {
+    public int getHealthPoint()
+    {
         return healthPoints;
     }
 
-    public void setHealthPoint(int healthPoints) {
+    public void setHealthPoint(int healthPoints)
+    {
         // Only allow positive values
         if (healthPoints >= 0)
             this.healthPoints = healthPoints;
     }
 
-    public PlayerState getPlayerState() {
+    public PlayerState getPlayerState()
+    {
         return playerState;
     }
 }

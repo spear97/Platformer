@@ -5,20 +5,24 @@ import android.graphics.Canvas;
 import com.example.gameproject.Infrastructure.GameDisplay;
 import com.example.gameproject.GameObjects.Player;
 
-public class Animator {
+public class Animator
+{
     private Sprite[] playerSpriteArray;
     private int idxNotMovingFrame = 0;
     private int idxMovingFrame = 1;
     private int updatesBeforeNextMoveFrame;
     private static final int MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME = 5;
 
-    public Animator(Sprite[] playerSpriteArray) {
+    public Animator(Sprite[] playerSpriteArray)
+    {
         this.playerSpriteArray = playerSpriteArray;
     }
 
 
-    public void draw(Canvas canvas, GameDisplay gameDisplay, Player player) {
-        switch (player.getPlayerState().getState()) {
+    public void draw(Canvas canvas, GameDisplay gameDisplay, Player player)
+    {
+        switch (player.getPlayerState().getState())
+        {
             case NOT_MOVING:
                 drawFrame(canvas, gameDisplay, player, playerSpriteArray[idxNotMovingFrame]);
                 break;
@@ -39,14 +43,16 @@ public class Animator {
         }
     }
 
-    private void toggleIdxMovingFrame() {
+    private void toggleIdxMovingFrame()
+    {
         if(idxMovingFrame == 1)
             idxMovingFrame = 2;
         else
             idxMovingFrame = 1;
     }
 
-    public void drawFrame(Canvas canvas, GameDisplay gameDisplay, Player player, Sprite sprite) {
+    public void drawFrame(Canvas canvas, GameDisplay gameDisplay, Player player, Sprite sprite)
+    {
         sprite.draw(
                 canvas,
                 (int) gameDisplay.gameToDisplayCoordinatesX(player.getPositionX()) - sprite.getWidth()/2,

@@ -6,11 +6,13 @@ import android.graphics.Paint;
 
 import com.example.gameproject.Infrastructure.GameDisplay;
 
-public abstract class Circle extends GameObject {
+public abstract class Circle extends GameObject
+{
     protected double radius;
     protected Paint paint;
 
-    public Circle(Context context, int color, double positionX, double positionY, double radius) {
+    public Circle(Context context, int color, double positionX, double positionY, double radius)
+    {
         super(positionX, positionY);
         this.radius = radius;
 
@@ -25,7 +27,8 @@ public abstract class Circle extends GameObject {
      * @param obj2
      * @return
      */
-    public static boolean isColliding(Circle obj1, Circle obj2) {
+    public static boolean isColliding(Circle obj1, Circle obj2)
+    {
         double distance = getDistanceBetweenObjects(obj1, obj2);
         double distanceToCollision = obj1.getRadius() + obj2.getRadius();
         if (distance < distanceToCollision)
@@ -34,7 +37,8 @@ public abstract class Circle extends GameObject {
             return false;
     }
 
-    public void draw(Canvas canvas, GameDisplay gameDisplay) {
+    public void draw(Canvas canvas, GameDisplay gameDisplay)
+    {
         canvas.drawCircle(
                 (float) gameDisplay.gameToDisplayCoordinatesX(positionX),
                 (float) gameDisplay.gameToDisplayCoordinatesY(positionY),
@@ -43,7 +47,8 @@ public abstract class Circle extends GameObject {
         );
     }
 
-    public double getRadius() {
+    public double getRadius()
+    {
         return radius;
     }
 }
