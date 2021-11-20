@@ -10,4 +10,8 @@
     <color name="player">#F82718</color>
     <color name="evil">#800080</color>
     <color name="healthBar">#00FF00</color>
+    <color name="healthBarBorder">#585858</color>
+    <color name="spell">#AD6802</color>
+    <color name="enemy">#1E6601</color>
+    <color name="gameOver">#DD0F00</color>
 </resources>
