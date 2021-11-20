@@ -6,7 +6,6 @@ import android.graphics.Paint;
 
 import androidx.core.content.ContextCompat;
 
-import com.example.gameproject.Objects.Player.Player;
 import com.example.gameproject.R;
 
 public class HealthBar

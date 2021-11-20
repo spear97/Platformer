@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.example.gameproject.Objects.AI.Enemy;
-import com.example.gameproject.Objects.Player.Player;
+import com.example.gameproject.Objects.Player;
 import com.example.gameproject.R;
 
 public class Game extends SurfaceView implements SurfaceHolder.Callback

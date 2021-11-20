@@ -1,5 +1,6 @@
 package com.example.gameproject.Objects;
 
+import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public abstract class GameObject
@@ -17,4 +18,6 @@ public abstract class GameObject
         this.x = x;
         this.y = y;
     }
+
+    public abstract void draw(Canvas canvas);
 }

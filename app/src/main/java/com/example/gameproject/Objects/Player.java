@@ -1,4 +1,4 @@
-package com.example.gameproject.Objects.Player;
+package com.example.gameproject.Objects;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -44,6 +44,7 @@ public class Player extends GameObject
         this.healthbar = new HealthBar(context, this);
     }
 
+    @Override
     public void draw(Canvas canvas)
     {
         //Draw Player

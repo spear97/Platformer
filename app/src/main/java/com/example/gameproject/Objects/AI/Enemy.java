@@ -27,13 +27,14 @@ public class Enemy extends GameObject
         paint.setColor(color);
     }
 
-    public void draw(Canvas canvas)
-    {
-        canvas.drawCircle((float) x, (float) y, (float) r, paint);
-    }
-
     public void update()
     {
         x += MAX_SPEED;
+    }
+
+    @Override
+    public void draw(Canvas canvas)
+    {
+        canvas.drawCircle((float) x, (float) y, (float) r, paint);
     }
 }
