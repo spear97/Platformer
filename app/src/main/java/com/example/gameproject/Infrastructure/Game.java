@@ -2,6 +2,8 @@ package com.example.gameproject.Infrastructure;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -15,9 +17,12 @@ import androidx.annotation.NonNull;
 import com.example.gameproject.GameObjects.Player;
 import com.example.gameproject.Graphics.Animator;
 import com.example.gameproject.Graphics.SpriteSheet;
+import com.example.gameproject.Graphics.Tiles.Tilemap;
+import com.example.gameproject.R;
 
 public class Game extends SurfaceView implements SurfaceHolder.Callback
 {
+    private final Tilemap tilemap;
     private final GameOver gameOver;
     private final Performance performance;
     private final Player player;
@@ -50,8 +55,15 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         gameOver = new GameOver(context);
         joystick = new Joystick(275, 700, 70, 40);
 
-        // Initialize game objects
-        SpriteSheet spriteSheet = new SpriteSheet(context);
+        // Initialize Bitmap Options
+        BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
+        bitmapOptions.inScaled = false;
+
+        //Create PlayerSpriteSheet
+        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.playerspritesheet, bitmapOptions);
+        SpriteSheet spriteSheet = new SpriteSheet(context, bitmap);
+
+        //Initialize Player
         Animator animator = new Animator(spriteSheet.getPlayerSpriteArray());
         player = new Player(context, joystick, 2*500, 500, 32, animator);
 
@@ -59,7 +71,14 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         gameDisplay = new GameDisplay(displayMetrics.widthPixels, displayMetrics.heightPixels, player);
-        
+
+        //Initialize TileMapSheet
+        Bitmap TileMapBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tilesheet, bitmapOptions);
+        SpriteSheet TileMapSheet = new SpriteSheet(context, TileMapBitmap);
+
+        // Initialize Tilemap
+        tilemap = new Tilemap(TileMapSheet);
+
         // Enable view's focus event for touch mode
         setFocusable(true);
     }
@@ -117,6 +136,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         performance.drawFPS(canvas);
         performance.drawUPS(canvas);
+
+        // Draw Tilemap
+        tilemap.draw(canvas, gameDisplay);
 
         joystick.draw(canvas);
         player.draw(canvas, gameDisplay);

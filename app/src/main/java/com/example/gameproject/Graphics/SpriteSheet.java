@@ -13,11 +13,9 @@ public class SpriteSheet
     private static final int SPRITE_HEIGHT_PIXELS = 64;
     private Bitmap bitmap;
 
-    public SpriteSheet(Context context)
+    public SpriteSheet(Context context, Bitmap bitmap)
     {
-        BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
-        bitmapOptions.inScaled = false;
-        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.playerspritesheet, bitmapOptions);
+        this.bitmap = bitmap;
     }
 
     public Sprite[] getPlayerSpriteArray()
@@ -33,26 +31,19 @@ public class SpriteSheet
         return bitmap;
     }
 
-    public Sprite getWaterSprite() {
-        return getSpriteByIndex(1, 0);
-    }
-
-    public Sprite getLavaSprite() {
-        return getSpriteByIndex(1, 1);
-    }
-
-    public Sprite getGroundSprite() {
-        return getSpriteByIndex(1, 2);
+    public Sprite getDirtSprite() {
+        return getSpriteByIndex(0, 0);
     }
 
     public Sprite getGrassSprite() {
-        return getSpriteByIndex(1, 3);
+        return getSpriteByIndex(0, 1);
     }
 
-    public Sprite getTreeSprite() {
-        return getSpriteByIndex(1, 4);
+    public Sprite getSkySprite() {
+        return getSpriteByIndex(0, 2);
     }
 
+    public Sprite getWaterSprite(){return getSpriteByIndex(0,3);}
 
     private Sprite getSpriteByIndex(int idxRow, int idxCol)
     {
