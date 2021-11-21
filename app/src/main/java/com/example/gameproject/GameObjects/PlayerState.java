@@ -6,7 +6,7 @@ public class PlayerState
     public enum State
     {
         NOT_MOVING,
-        STARED_MOVING,
+        STARTED_MOVING,
         IS_MOVING
     }
 
@@ -30,9 +30,9 @@ public class PlayerState
         {
             case NOT_MOVING:
                 if (player.velocityX != 0 || player.velocityY != 0)
-                    state = State.STARED_MOVING;
+                    state = State.STARTED_MOVING;
                 break;
-            case STARED_MOVING:
+            case STARTED_MOVING:
                 if (player.velocityX != 0 || player.velocityY != 0)
                     state = State.IS_MOVING;
                 break;

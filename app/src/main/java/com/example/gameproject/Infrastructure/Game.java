@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -17,11 +18,22 @@ import androidx.annotation.NonNull;
 import com.example.gameproject.GameObjects.Player;
 import com.example.gameproject.Graphics.Animator;
 import com.example.gameproject.Graphics.SpriteSheet;
+import com.example.gameproject.Graphics.Tiles.Tile;
 import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.R;
 
 public class Game extends SurfaceView implements SurfaceHolder.Callback
 {
+    enum Level
+    {
+        LEVEL_1,
+        LEVEL_2,
+        LEVEL_3,
+        LEVEL_4,
+        LEVEL_5
+    }
+    private Level lvl;
+    private int lvl_idx;
     private final Tilemap tilemap;
     private final GameOver gameOver;
     private final Performance performance;
@@ -63,21 +75,22 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.playerspritesheet, bitmapOptions);
         SpriteSheet spriteSheet = new SpriteSheet(context, bitmap);
 
-        //Initialize Player
-        Animator animator = new Animator(spriteSheet.getPlayerSpriteArray());
-        player = new Player(context, joystick, 2*500, 500, 32, animator);
-
-        // Initialize display and center it around the player
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        gameDisplay = new GameDisplay(displayMetrics.widthPixels, displayMetrics.heightPixels, player);
-
         //Initialize TileMapSheet
         Bitmap TileMapBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tilesheet, bitmapOptions);
         SpriteSheet TileMapSheet = new SpriteSheet(context, TileMapBitmap);
 
         // Initialize Tilemap
         tilemap = new Tilemap(TileMapSheet);
+        Tile spawnPoint = tilemap.getTile(19, 0);
+
+        //Initialize Player
+        Animator animator = new Animator(spriteSheet.getPlayerSpriteArray());
+        player = new Player(context, joystick, spawnPoint.mapLocationRect.right+1280, spawnPoint.mapLocationRect.top, 64, animator);
+
+        // Initialize display and center it around the player
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        gameDisplay = new GameDisplay(displayMetrics.widthPixels, displayMetrics.heightPixels, player);
 
         // Enable view's focus event for touch mode
         setFocusable(true);
@@ -102,6 +115,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         Log.d("Game.java", "surfaceDestroyed()");
     }
 
+    //Allow for Input for the Screen
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
@@ -144,6 +158,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         player.draw(canvas, gameDisplay);
     }
 
+    //Update Joystick, Player, and GameDisplay as Game Proceeds to run
     public void update()
     {
         joystick.update();

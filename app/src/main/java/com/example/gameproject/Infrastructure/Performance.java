@@ -44,4 +44,14 @@ public class Performance
         paint.setTextSize(50);
         canvas.drawText("FPS: " + averageFPS, 100, 200, paint);
     }
+
+    public void drawPlayerX(Canvas canvas)
+    {
+        String averageFPS = Double.toString(gameLoop.getAverageFPS());
+        Paint paint = new Paint();
+        int color = ContextCompat.getColor(context, R.color.white);
+        paint.setColor(color);
+        paint.setTextSize(50);
+        canvas.drawText("FPS: " + averageFPS, 100, 200, paint);
+    }
 }

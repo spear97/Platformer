@@ -26,7 +26,7 @@ public class Animator
             case NOT_MOVING:
                 drawFrame(canvas, gameDisplay, player, playerSpriteArray[idxNotMovingFrame]);
                 break;
-            case STARED_MOVING:
+            case STARTED_MOVING:
                 updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
                 drawFrame(canvas, gameDisplay, player, playerSpriteArray[idxMovingFrame]);
                 break;

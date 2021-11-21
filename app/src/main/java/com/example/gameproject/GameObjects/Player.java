@@ -41,7 +41,7 @@ public class Player extends Circle
 
         // Update position
         positionX += velocityX;
-        positionY += velocityY;
+        //positionY += velocityY;
 
         // Update direction
         if (velocityX != 0 || velocityY != 0)

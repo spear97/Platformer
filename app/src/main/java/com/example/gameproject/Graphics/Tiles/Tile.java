@@ -8,7 +8,7 @@ import com.example.gameproject.Graphics.SpriteSheet;
 public abstract class Tile
 {
 
-    protected Rect mapLocationRect;
+    public Rect mapLocationRect;
 
     public enum TileType
     {
