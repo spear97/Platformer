@@ -53,7 +53,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         // Initialize UI
         performance = new Performance(context, gameLoop);
         gameOver = new GameOver(context);
-        joystick = new Joystick(275, 700, 70, 40);
+        joystick = new Joystick(275, height-200, 150, 75);
 
         // Initialize Bitmap Options
         BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
@@ -148,5 +148,6 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     {
         joystick.update();
         player.update();
+        gameDisplay.update();
     }
 }
