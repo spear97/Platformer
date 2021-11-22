@@ -81,11 +81,11 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         // Initialize Tilemap
         tilemap = new Tilemap(TileMapSheet);
-        Tile spawnPoint = tilemap.getTile(19, 0);
+        Tile playerSpawnPoint = tilemap.getTile(19, 0);
 
         //Initialize Player
-        Animator animator = new Animator(spriteSheet.getPlayerSpriteArray());
-        player = new Player(context, joystick, spawnPoint.mapLocationRect.right+1280, spawnPoint.mapLocationRect.top, 64, animator);
+        Animator playerAnimator = new Animator(spriteSheet.getPlayerSpriteArray());
+        player = new Player(context, joystick, playerSpawnPoint.mapLocationRect.right+1280, playerSpawnPoint.mapLocationRect.top, 64, playerAnimator);
 
         // Initialize display and center it around the player
         DisplayMetrics displayMetrics = new DisplayMetrics();

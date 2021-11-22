@@ -7,43 +7,47 @@ import com.example.gameproject.GameObjects.Player;
 
 public class Animator
 {
-    private Sprite[] playerSpriteArray;
+    private Sprite[] SpriteArray;
     private int idxNotMovingFrame = 0;
     private int idxMovingFrame = 1;
     private int updatesBeforeNextMoveFrame;
     private static final int MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME = 5;
 
-    public Animator(Sprite[] playerSpriteArray)
+    public Animator(Sprite[] SpriteArray)
     {
-        this.playerSpriteArray = playerSpriteArray;
+        this.SpriteArray = SpriteArray;
     }
 
-
-    public void draw(Canvas canvas, GameDisplay gameDisplay, Player player)
+    //Draws animations for Player Character
+    public void drawPlayer(Canvas canvas, GameDisplay gameDisplay, Player player)
     {
         switch (player.getPlayerState().getState())
         {
+            //Idle Animation
             case NOT_MOVING:
-                drawFrame(canvas, gameDisplay, player, playerSpriteArray[idxNotMovingFrame]);
+                drawFrame(canvas, gameDisplay, player, SpriteArray[idxNotMovingFrame]);
                 break;
+            //Walking Animation
             case STARTED_MOVING:
                 updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
-                drawFrame(canvas, gameDisplay, player, playerSpriteArray[idxMovingFrame]);
+                drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
                 break;
+            //Walking Animation
             case IS_MOVING:
                 updatesBeforeNextMoveFrame--;
                 if(updatesBeforeNextMoveFrame == 0) {
                     updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
-                    toggleIdxMovingFrame();
+                    toggleIdxWalkingFrame();
                 }
-                drawFrame(canvas, gameDisplay, player, playerSpriteArray[idxMovingFrame]);
+                drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
                 break;
             default:
                 break;
         }
     }
 
-    private void toggleIdxMovingFrame()
+    //Handles Walk Cycle Animations
+    private void toggleIdxWalkingFrame()
     {
         if(idxMovingFrame == 1)
             idxMovingFrame = 2;

@@ -3,6 +3,7 @@ package com.example.gameproject.Graphics.Tiles;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 
+import com.example.gameproject.GameObjects.Player;
 import com.example.gameproject.Graphics.SpriteSheet;
 
 public abstract class Tile
@@ -39,6 +40,16 @@ public abstract class Tile
             default:
                 return null;
         }
+    }
+
+    public boolean topCollisionPlayer(Player player)
+    {
+        return true;
+    }
+
+    public boolean bottomCollisionPlayer(Player player)
+    {
+        return true;
     }
 
     public abstract void draw(Canvas canvas);
