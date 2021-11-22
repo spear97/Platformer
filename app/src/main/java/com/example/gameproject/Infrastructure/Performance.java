@@ -6,6 +6,7 @@ import android.graphics.Paint;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.gameproject.GameObjects.Player;
 import com.example.gameproject.R;
 
 public class Performance
@@ -45,13 +46,23 @@ public class Performance
         canvas.drawText("FPS: " + averageFPS, 100, 200, paint);
     }
 
-    public void drawPlayerX(Canvas canvas)
+    public void drawPlayerX(Canvas canvas, double x)
     {
-        String averageFPS = Double.toString(gameLoop.getAverageFPS());
+        String averageFPS = Double.toString(x);
         Paint paint = new Paint();
         int color = ContextCompat.getColor(context, R.color.white);
         paint.setColor(color);
         paint.setTextSize(50);
-        canvas.drawText("FPS: " + averageFPS, 100, 200, paint);
+        canvas.drawText("Y: " + averageFPS, 100, 300, paint);
+    }
+
+    public void drawJoystickX(Canvas canvas, double x)
+    {
+        String averageFPS = Double.toString(x);
+        Paint paint = new Paint();
+        int color = ContextCompat.getColor(context, R.color.white);
+        paint.setColor(color);
+        paint.setTextSize(50);
+        canvas.drawText("YActuator: " + averageFPS, 100, 400, paint);
     }
 }

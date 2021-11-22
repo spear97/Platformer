@@ -39,9 +39,17 @@ public class Player extends Circle
         velocityX = joystick.getActuatorX()*MAX_SPEED;
         velocityY = joystick.getActuatorY()*MAX_SPEED;
 
-        // Update position
-        positionX += velocityX;
-        //positionY += velocityY;
+        // Update position, if Position is in Bounds
+        if(getPositionX() > 1200 && getPositionX() < 8330)
+        {
+            positionX += velocityX;
+        }
+        else if(getPositionX() <= 1200 && joystick.getActuatorX() > 0 || getPositionX() >= 8330 && joystick.getActuatorX() < 0)
+        {
+            positionX += velocityX;
+        }
+
+        positionY += velocityY;
 
         // Update direction
         if (velocityX != 0 || velocityY != 0)

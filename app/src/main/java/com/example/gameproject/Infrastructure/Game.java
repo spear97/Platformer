@@ -148,14 +148,16 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     {
         super.draw(canvas);
 
-        performance.drawFPS(canvas);
-        performance.drawUPS(canvas);
-
         // Draw Tilemap
         tilemap.draw(canvas, gameDisplay);
 
         joystick.draw(canvas);
         player.draw(canvas, gameDisplay);
+
+        performance.drawFPS(canvas);
+        performance.drawUPS(canvas);
+        performance.drawPlayerX(canvas, player.getPositionY());
+        performance.drawJoystickX(canvas, joystick.getActuatorY());
     }
 
     //Update Joystick, Player, and GameDisplay as Game Proceeds to run
