@@ -9,21 +9,24 @@ import com.example.gameproject.R;
 
 public class SpriteSheet
 {
-    private static final int SPRITE_WIDTH_PIXELS = 64;
-    private static final int SPRITE_HEIGHT_PIXELS = 64;
+    private int SPRITE_WIDTH_PIXELS;
+    private int SPRITE_HEIGHT_PIXELS;
     private Bitmap bitmap;
 
-    public SpriteSheet(Context context, Bitmap bitmap)
+    public SpriteSheet(Context context, Bitmap bitmap, int SPRITE_WIDTH_PIXELS, int SPRITE_HEIGHT_PIXELS)
     {
         this.bitmap = bitmap;
+        this.SPRITE_WIDTH_PIXELS = SPRITE_WIDTH_PIXELS;
+        this.SPRITE_HEIGHT_PIXELS = SPRITE_HEIGHT_PIXELS;
     }
 
     public Sprite[] getPlayerSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[3];
-        spriteArray[0] = new Sprite(this, new Rect(0*64, 0, 1*64, 64));
-        spriteArray[1] = new Sprite(this, new Rect(1*64, 0, 2*64, 64));
-        spriteArray[2] = new Sprite(this, new Rect(2*64, 0, 3*64, 64));
+        spriteArray[0] = new Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0, 1*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0, 2*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
+        spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0, 3*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
+
         return spriteArray;
     }
 

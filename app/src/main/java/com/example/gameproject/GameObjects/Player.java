@@ -21,7 +21,6 @@ public class Player extends Circle
     private HealthBar healthBar;
     private int healthPoints = MAX_HEALTH_POINTS;
     private Animator animator;
-    private PlayerState playerState;
 
     public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Animator animator)
     {
@@ -29,7 +28,6 @@ public class Player extends Circle
         this.joystick = joystick;
         this.healthBar = new HealthBar(context, this);
         this.animator = animator;
-        this.playerState = new PlayerState(this);
     }
 
     public void update()
@@ -40,18 +38,7 @@ public class Player extends Circle
         velocityY = joystick.getActuatorY()*MAX_SPEED;
 
         // Update position, if Position is in Bounds
-        boolean notAtX = getPositionX() > 1200 && getPositionX() < 8330;
-        boolean notAtY = getPositionY() > 725 && getPositionY() < 1836;
-        boolean atX = getPositionX() <= 1200 && joystick.getActuatorX() > 0 || getPositionX() >= 8330 && joystick.getActuatorX() < 0;
-        boolean atY = getPositionY() <= 725 && joystick.getActuatorY() > 0 || getPositionY() >= 1836 && joystick.getActuatorY() < 0;
-        if(notAtX)
-        {
-            positionX += velocityX;
-        }
-        else if(atX)
-        {
-            positionX += velocityX;
-        }
+        positionX += velocityX;
 
         //positionY += velocityY;
 
@@ -63,8 +50,6 @@ public class Player extends Circle
             directionX = velocityX/distance;
             directionY = velocityY/distance;
         }
-
-        playerState.update();
     }
 
     public void draw(Canvas canvas, GameDisplay gameDisplay)
@@ -91,8 +76,5 @@ public class Player extends Circle
         return joystick;
     }
 
-    public PlayerState getPlayerState()
-    {
-        return playerState;
-    }
+    public Animator getAnimator() {return animator;}
 }

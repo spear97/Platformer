@@ -7,42 +7,44 @@ import com.example.gameproject.GameObjects.Player;
 
 public class Animator
 {
+    enum Dir
+    {
+        Right,
+        Level
+    }
+
+    private Dir dir;
     private Sprite[] SpriteArray;
     private int idxNotMovingFrame = 0;
     private int idxMovingFrame = 1;
     private int updatesBeforeNextMoveFrame;
-    private static final int MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME = 5;
+    private static final int MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME = 3;
 
     public Animator(Sprite[] SpriteArray)
     {
         this.SpriteArray = SpriteArray;
+        updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
     }
 
     //Draws animations for Player Character
     public void drawPlayer(Canvas canvas, GameDisplay gameDisplay, Player player)
     {
-        switch (player.getPlayerState().getState())
+        if(player.getJoystick().getActuatorX() > 0 || player.getJoystick().getActuatorX() < 0)
         {
-            //Idle Animation
-            case NOT_MOVING:
-                drawFrame(canvas, gameDisplay, player, SpriteArray[idxNotMovingFrame]);
-                break;
-            //Walking Animation
-            case STARTED_MOVING:
+            drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
+            if(updatesBeforeNextMoveFrame == 0)
+            {
+                toggleIdxWalkingFrame();
                 updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
-                drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
-                break;
-            //Walking Animation
-            case IS_MOVING:
+            }
+            else if(updatesBeforeNextMoveFrame > 0)
+            {
                 updatesBeforeNextMoveFrame--;
-                if(updatesBeforeNextMoveFrame == 0) {
-                    updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
-                    toggleIdxWalkingFrame();
-                }
-                drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
-                break;
-            default:
-                break;
+            }
+        }
+        else
+        {
+            drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
         }
     }
 

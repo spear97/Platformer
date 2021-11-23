@@ -32,4 +32,6 @@ public class Sprite
     public int getHeight() {
         return rect.height();
     }
+
+    public Rect getRect() {return rect;}
 }

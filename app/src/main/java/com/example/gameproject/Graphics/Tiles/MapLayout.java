@@ -7,20 +7,41 @@ public class MapLayout
     public static final int NUMBER_OF_ROW_TILES = 40;
     public static final int NUMBER_OF_COLUMN_TILES = 150;
 
-    private int[][] layout;
+    //Level 1 MapLayout
+    private int[][] level1, level2, level3, level4, level5;
 
     public MapLayout()
     {
         initializeLayout();
     }
 
-    public int[][] getLayout()
+    public int[][] getLevel1()
     {
-        return layout;
+        return level1;
+    }
+
+    public int[][] getLevel2()
+    {
+        return level2;
+    }
+
+    public int[][] getLevel3()
+    {
+        return level3;
+    }
+
+    public int[][] getlevel4()
+    {
+        return level4;
+    }
+
+    public int[][] getlevel5()
+    {
+        return level5;
     }
 
     private void initializeLayout() {
-        layout = new int[][]
+        level1 = new int[][]
         {
                 {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
                 {2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2},
