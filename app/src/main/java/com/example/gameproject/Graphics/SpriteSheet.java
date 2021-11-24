@@ -13,6 +13,8 @@ public class SpriteSheet
     private int SPRITE_HEIGHT_PIXELS;
     private Bitmap bitmap;
 
+    //Constructor that will use SPRITE_WIDTH_PIXELS and SPRITE_HEIGHT_PIXELS to keep Frames Organized
+    //For Frames used to organize Animations and Particle Effects
     public SpriteSheet(Context context, Bitmap bitmap, int SPRITE_WIDTH_PIXELS, int SPRITE_HEIGHT_PIXELS)
     {
         this.bitmap = bitmap;
@@ -20,6 +22,7 @@ public class SpriteSheet
         this.SPRITE_HEIGHT_PIXELS = SPRITE_HEIGHT_PIXELS;
     }
 
+    //Character Look of Player Character and Animations that Player will Perform
     public Sprite[] getPlayerSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[8];
@@ -35,6 +38,7 @@ public class SpriteSheet
         return spriteArray;
     }
 
+    //Character Look of AI One and Animations that AI One will Perform
     public Sprite[] getAIOneSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[3];
@@ -44,6 +48,7 @@ public class SpriteSheet
         return spriteArray;
     }
 
+    //Character Look of AI Two and Animations that AI Two will Perform
     public Sprite[] getAITwoSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[12];
@@ -62,6 +67,7 @@ public class SpriteSheet
         return spriteArray;
     }
 
+    //Projectile Effect Look that AI Two Could Fire
     public Sprite[] getAITwoSpriteProjArray()
     {
         Sprite[] spriteArray = new Sprite[6];
@@ -74,6 +80,7 @@ public class SpriteSheet
         return spriteArray;
     }
 
+    //Character Look of AI Three and Animations that AI Three will Perform
     public Sprite[] getAIThreeSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[28];
@@ -108,6 +115,7 @@ public class SpriteSheet
         return spriteArray;
     }
 
+    //Projectile Effect Look that AI Three Could Fire
     public Sprite[] getAIThreeProjArray()
     {
         Sprite[] spriteArray = new Sprite[10];
@@ -124,6 +132,7 @@ public class SpriteSheet
         return spriteArray;
     }
 
+    //Character Look of Boss and Animations that Boss will Perform
     public Sprite[] getAIBossArray()
     {
         Sprite[] spriteArray = new Sprite[6];
@@ -136,6 +145,7 @@ public class SpriteSheet
         return spriteArray;
     }
 
+    //Projectile Effect Look that Boss Three Could Fire
     public Sprite[] getAIBossProjArray()
     {
         Sprite[] spriteArray = new Sprite[2];
@@ -144,24 +154,30 @@ public class SpriteSheet
         return spriteArray;
     }
 
+    //Return the Bitmap that is being used by SpriteSheet
     public Bitmap getBitmap() {
         return bitmap;
     }
 
+    //Return a Dirt Tile
     public Sprite getDirtSprite() {
         return getSpriteByIndex(0, 0);
     }
 
+    //Return a Grass Tile
     public Sprite getGrassSprite() {
         return getSpriteByIndex(0, 1);
     }
 
+    //Return a Sky Sprite
     public Sprite getSkySprite() {
         return getSpriteByIndex(0, 2);
     }
 
+    //Return a Water Sprite
     public Sprite getWaterSprite(){return getSpriteByIndex(0,3);}
 
+    //Return a Sprite on the Sprite Sheet based on the row and column it exists on
     private Sprite getSpriteByIndex(int idxRow, int idxCol)
     {
         return new Sprite(this, new Rect(
