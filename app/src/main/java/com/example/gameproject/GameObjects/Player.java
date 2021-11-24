@@ -21,6 +21,8 @@ public class Player extends Circle
     private HealthBar healthBar;
     private int healthPoints = MAX_HEALTH_POINTS;
     private Animator animator;
+    private boolean jump = false;
+    private boolean isAlive;
 
     public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Animator animator)
     {
@@ -77,4 +79,12 @@ public class Player extends Circle
     }
 
     public Animator getAnimator() {return animator;}
+
+    public boolean getJump() {return jump;}
+
+    public void setJump(boolean x) {jump = x;}
+
+    public boolean getIsAlive(){return isAlive;}
+
+    public void setIsAlive(boolean x){isAlive = x;}
 }

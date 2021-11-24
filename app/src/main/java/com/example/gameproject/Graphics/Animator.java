@@ -10,12 +10,11 @@ public class Animator
     enum Dir
     {
         Right,
-        Level
+        Left
     }
 
     private Dir dir;
     private Sprite[] SpriteArray;
-    private int idxNotMovingFrame = 0;
     private int idxMovingFrame = 1;
     private int updatesBeforeNextMoveFrame;
     private static final int MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME = 3;
@@ -24,12 +23,13 @@ public class Animator
     {
         this.SpriteArray = SpriteArray;
         updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
+        dir = Dir.Right;
     }
 
     //Draws animations for Player Character
     public void drawPlayer(Canvas canvas, GameDisplay gameDisplay, Player player)
     {
-        if(player.getJoystick().getActuatorX() > 0 || player.getJoystick().getActuatorX() < 0)
+        if((player.getJoystick().getActuatorX() > 0 || player.getJoystick().getActuatorX() < 0) && !player.getJump())
         {
             drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
             if(updatesBeforeNextMoveFrame == 0)
@@ -42,7 +42,25 @@ public class Animator
                 updatesBeforeNextMoveFrame--;
             }
         }
-        else
+        else if(player.getJoystick().getActuatorX() == 0)
+        {
+            drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
+        }
+
+        if(player.getJump())
+        {
+            drawFrame(canvas, gameDisplay, player, SpriteArray[3]);
+        }
+        else if(!player.getJump())
+        {
+            drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
+        }
+
+        if(!player.getIsAlive())
+        {
+            drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
+        }
+        else if(player.getIsAlive())
         {
             drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
         }

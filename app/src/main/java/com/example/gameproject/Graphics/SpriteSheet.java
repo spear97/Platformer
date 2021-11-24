@@ -22,11 +22,16 @@ public class SpriteSheet
 
     public Sprite[] getPlayerSpriteArray()
     {
-        Sprite[] spriteArray = new Sprite[3];
-        spriteArray[0] = new Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0, 1*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0, 2*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0, 3*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-
+        Sprite[] spriteArray = new Sprite[8];
+        spriteArray[0] = new Sprite(this, new Rect(0*128, 0, 1*128, 128));
+        spriteArray[1] = new Sprite(this, new Rect(1*128, 0, 2*128, 128));
+        spriteArray[2] = new Sprite(this, new Rect(2*128, 0, 3*128, 128));
+        spriteArray[3] = new Sprite(this, new Rect(3*128, 0, 4*128, 128));
+        spriteArray[4] = new Sprite(this, new Rect(0*128, 128, 1*128, 2*128));
+        spriteArray[5] = new Sprite(this, new Rect(1*128, 128, 2*128, 2*128));
+        spriteArray[6] = new Sprite(this, new Rect(2*128, 128, 3*128, 2*128));
+        spriteArray[7] = new Sprite(this, new Rect(3*128, 128, 4*128, 2*128));
+        //spriteArray[8] = new Sprite(this, new Rect(0*128, 2*128, 1*128, 3*128));
         return spriteArray;
     }
 

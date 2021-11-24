@@ -46,7 +46,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         wm.getDefaultDisplay().getMetrics(metrics);
         height = metrics.heightPixels - 200;
-        width = metrics.widthPixels - 200;
+        width = 250;
 
         // Set gameLoop to be able to handle Execution of Game Functionality
         gameLoop = new GameLoop(surfaceHolder, this);
