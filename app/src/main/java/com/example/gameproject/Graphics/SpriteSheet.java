@@ -23,14 +23,14 @@ public class SpriteSheet
     public Sprite[] getPlayerSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[8];
-        spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0, 1*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0, 2*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0, 3*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[3] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 0, 4*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[4] = new Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        spriteArray[5] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        spriteArray[6] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        spriteArray[7] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[3] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[4] = new Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[5] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[6] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[7] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
         //spriteArray[8] = new Sprite(this, new Rect(0*128, 2*128, 1*128, 3*128));
         return spriteArray;
     }
@@ -38,27 +38,39 @@ public class SpriteSheet
     public Sprite[] getAIOneSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[3];
-        spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0, 1*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0, 2*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0, 3*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
+        spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
         return spriteArray;
     }
 
     public Sprite[] getAITwoSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[12];
-        spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0, 1*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0, 2*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0, 3*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[3] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 0, 4*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[4] = new Sprite(this, new Rect(4*SPRITE_WIDTH_PIXELS, 0, 5*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[5] = new Sprite(this, new Rect(5*SPRITE_WIDTH_PIXELS, 0, 6*SPRITE_WIDTH_PIXELS, SPRITE_HEIGHT_PIXELS));
-        spriteArray[6] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, SPRITE_WIDTH_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        spriteArray[7] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, SPRITE_WIDTH_PIXELS, 2*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        spriteArray[8] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, SPRITE_WIDTH_PIXELS, 3*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        spriteArray[9] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, SPRITE_WIDTH_PIXELS, 4*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        spriteArray[10] = new Sprite(this, new Rect(4*SPRITE_WIDTH_PIXELS, SPRITE_WIDTH_PIXELS, 5*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        spriteArray[11] = new Sprite(this, new Rect(5*SPRITE_WIDTH_PIXELS, SPRITE_WIDTH_PIXELS, 6*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[3] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[4] = new Sprite(this, new Rect(4*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 5*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[5] = new Sprite(this, new Rect(5*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 6*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[6] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[7] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[8] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 1*SPRITE_WIDTH_PIXELS, 3*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[9] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 1*SPRITE_WIDTH_PIXELS, 4*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[10] = new Sprite(this, new Rect(4*SPRITE_WIDTH_PIXELS, 1*SPRITE_WIDTH_PIXELS, 5*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[11] = new Sprite(this, new Rect(5*SPRITE_WIDTH_PIXELS, 1*SPRITE_WIDTH_PIXELS, 6*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        return spriteArray;
+    }
+
+    public Sprite[] getAITwoSpriteProjArray()
+    {
+        Sprite[] spriteArray = new Sprite[6];
+        spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new  Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[2] = new  Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[3] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[4] = new  Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[5] = new  Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
         return spriteArray;
     }
 
@@ -66,6 +78,49 @@ public class SpriteSheet
     {
         Sprite[] spriteArray = new Sprite[28];
         spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new  Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[2] = new  Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[3] = new  Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[4] = new  Sprite(this, new Rect(4*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 5*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[5] = new  Sprite(this, new Rect(5*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 6*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[6] = new  Sprite(this, new Rect(6*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 7*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[7] = new  Sprite(this, new Rect(7*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 8*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[8] = new  Sprite(this, new Rect(8*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 9*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[9] = new  Sprite(this, new Rect(9*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 10*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[10] = new  Sprite(this, new Rect(10*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 11*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[11] = new  Sprite(this, new Rect(11*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 12*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[12] = new  Sprite(this, new Rect(12*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 13*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[13] = new  Sprite(this, new Rect(13*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 14*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[14] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[15] = new  Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[16] = new  Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[17] = new  Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[18] = new  Sprite(this, new Rect(4*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 5*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[19] = new  Sprite(this, new Rect(5*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 6*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[20] = new  Sprite(this, new Rect(6*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 7*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[21] = new  Sprite(this, new Rect(7*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 8*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[22] = new  Sprite(this, new Rect(8*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 9*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[23] = new  Sprite(this, new Rect(9*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 10*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[24] = new  Sprite(this, new Rect(10*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 11*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[25] = new  Sprite(this, new Rect(11*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 12*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[26] = new  Sprite(this, new Rect(12*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 13*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[27] = new  Sprite(this, new Rect(13*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 14*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        return spriteArray;
+    }
+
+    public Sprite[] getAIThreeProjArray()
+    {
+        Sprite[] spriteArray = new Sprite[10];
+        spriteArray[0] = new  Sprite(this, new Rect(14*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 15*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new  Sprite(this, new Rect(15*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 16*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[2] = new  Sprite(this, new Rect(16*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 17*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[3] = new  Sprite(this, new Rect(17*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 18*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[4] = new  Sprite(this, new Rect(18*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 19*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[5] = new  Sprite(this, new Rect(14*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 15*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[6] = new  Sprite(this, new Rect(15*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 16*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[7] = new  Sprite(this, new Rect(16*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 17*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[8] = new  Sprite(this, new Rect(17*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 18*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[9] = new  Sprite(this, new Rect(18*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 19*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
         return spriteArray;
     }
 
@@ -73,6 +128,19 @@ public class SpriteSheet
     {
         Sprite[] spriteArray = new Sprite[6];
         spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new  Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[2] = new  Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[3] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[4] = new  Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        spriteArray[5] = new  Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+        return spriteArray;
+    }
+
+    public Sprite[] getAIBossProjArray()
+    {
+        Sprite[] spriteArray = new Sprite[2];
+        spriteArray[0] = new  Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+        spriteArray[1] = new  Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
         return spriteArray;
     }
 
