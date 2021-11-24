@@ -12,33 +12,26 @@ public class LevelTwo extends Enemy{
 
         if (Collision.tileCollisionRight(this.thisEnemy, this.thisEnemy.getSpeed(), currentLevel)
                 == false && (Math.abs((this.thisEnemy.getX() + this.thisEnemy.getSpeed())
-                - this.player.getX()) < Collision.getXDist(this.thisEnemy, this.player)))
-        {
+                - this.player.getX()) < Collision.getXDist(this.thisEnemy, this.player))) {
             //Should/Can go right
             this.thisEnemy.setX(this.thisEnemy.getX() + this.thisEnemy.getSpeed());
-        }
-        else if (Collision.tileCollisionLeft(this.thisEnemy, this.thisEnemy.getSpeed(), currentLevel)
+        } else if (Collision.tileCollisionLeft(this.thisEnemy, this.thisEnemy.getSpeed(), currentLevel)
                 == false && (Math.abs((this.thisEnemy.getX() - this.thisEnemy.getSpeed())
-                - this.player.getX())) < Collision.getXDist(this.thisEnemy, this.player))
-        {
+                - this.player.getX())) < Collision.getXDist(this.thisEnemy, this.player)) {
             //Should/Can go left
             this.thisEnemy.setX(this.thisEnemy.getX() - this.thisEnemy.getSpeed());
         }
 
         if (Collision.tileCollisionDown(this.thisEnemy, this.thisEnemy.getSpeed(), currentLevel)
                 == false && (Math.abs((this.thisEnemy.getY() + this.thisEnemy.getSpeed())
-                - this.player.getY()) < Collision.getYDist(this.thisEnemy, this.player)))
-        {
+                - this.player.getY()) < Collision.getYDist(this.thisEnemy, this.player))) {
             //Should/Can go down
             this.thisEnemy.setY(this.thisEnemy.getY() + this.thisEnemy.getSpeed());
-        }
-        else if (Collision.tileCollisionUp(this.thisEnemy, this.thisEnemy.getSpeed(), currentLevel)
+        } else if (Collision.tileCollisionUp(this.thisEnemy, this.thisEnemy.getSpeed(), currentLevel)
                 == false && (Math.abs((this.thisEnemy.getY() - this.thisEnemy.getSpeed())
-                - this.player.getY()) < Collision.getYDist(this.thisEnemy, this.player)))
-        {
+                - this.player.getY()) < Collision.getYDist(this.thisEnemy, this.player))) {
             //Should/Can go up
             this.thisEnemy.setY(this.thisEnemy.getY() - this.thisEnemy.getSpeed());
         }
     }
-    
 }
