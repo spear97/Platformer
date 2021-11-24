@@ -10,6 +10,8 @@ public abstract class GameObject
     protected double velocityX, velocityY = 0.0;
     protected double directionX = 1.0;
     protected double directionY = 0.0;
+    protected boolean jump = false;
+    protected boolean isAlive = true;
 
     public GameObject(double positionX, double positionY)
     {
@@ -25,6 +27,14 @@ public abstract class GameObject
 
     public abstract void draw(Canvas canvas, GameDisplay gameDisplay);
     public abstract void update();
+
+    public boolean getJump() {return jump;}
+
+    public void setJump(boolean x) {jump = x;}
+
+    public boolean getIsAlive(){return isAlive;}
+
+    public void setIsAlive(boolean x){isAlive = x;}
 
     /**
      * getDistanceBetweenObjects returns the distance between two game objects

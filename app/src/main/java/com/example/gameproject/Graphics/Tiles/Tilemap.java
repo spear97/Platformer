@@ -19,17 +19,23 @@ public class Tilemap {
     private SpriteSheet spriteSheet;
     private Bitmap mapBitmap;
 
-    public Tilemap(SpriteSheet spriteSheet) {
+    //Tile Map Constructor
+    public Tilemap(SpriteSheet spriteSheet)
+    {
         mapLayout = new MapLayout();
         this.spriteSheet = spriteSheet;
         initializeTilemap();
     }
 
-    private void initializeTilemap() {
-        int[][] layout = mapLayout.getLayout();
+    //Initialize the TileMap
+    private void initializeTilemap()
+    {
+        int[][] layout = mapLayout.getLevel1();
         tilemap = new Tile[NUMBER_OF_ROW_TILES][NUMBER_OF_COLUMN_TILES];
-        for (int iRow = 0; iRow < NUMBER_OF_ROW_TILES; iRow++) {
-            for (int iCol = 0; iCol < NUMBER_OF_COLUMN_TILES; iCol++) {
+        for (int iRow = 0; iRow < NUMBER_OF_ROW_TILES; iRow++)
+        {
+            for (int iCol = 0; iCol < NUMBER_OF_COLUMN_TILES; iCol++)
+            {
                 tilemap[iRow][iCol] = Tile.getTile(
                         layout[iRow][iCol],
                         spriteSheet,
@@ -47,14 +53,16 @@ public class Tilemap {
 
         Canvas mapCanvas = new Canvas(mapBitmap);
 
-        for (int iRow = 0; iRow < NUMBER_OF_ROW_TILES; iRow++) {
-            for (int iCol = 0; iCol < NUMBER_OF_COLUMN_TILES; iCol++) {
+        for (int iRow = 0; iRow < NUMBER_OF_ROW_TILES; iRow++)
+        {
+            for (int iCol = 0; iCol < NUMBER_OF_COLUMN_TILES; iCol++)
+            {
                 tilemap[iRow][iCol].draw(mapCanvas);
             }
         }
-
     }
 
+    //Return a Rect of a Tile that exists on the Map
     private Rect getRectByIndex(int idxRow, int idxCol) {
         return new Rect(
                 idxCol*TILE_WIDTH_PIXELS,
@@ -64,11 +72,13 @@ public class Tilemap {
         );
     }
 
+    //Return a Specific Tile that exists on the Map
     public Tile getTile(int i, int j)
     {
         return tilemap[i][j];
     }
 
+    //Draw the Tile to the Map
     public void draw(Canvas canvas, GameDisplay gameDisplay) {
         canvas.drawBitmap(
                 mapBitmap,
