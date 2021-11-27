@@ -13,7 +13,7 @@ public class LevelOne extends Enemy{
     int maxSpeed = (int) (MAX_SPEED*0.5);
     int moveSpeed = (int) (SPEED_PIXELS_PER_SECOND*0.5);
     int fallSpeed = maxSpeed;
-    boolean facingRight = true;
+    boolean facingRight = false;
 
     private void getNextPosition(){
 
