@@ -33,6 +33,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private int height;
     private int width;
 
+    //Constructor
     public Game(Context context)
     {
         super(context);
@@ -66,7 +67,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         //Initialize TileMapSheet
         Bitmap TileMapBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tilesheet, bitmapOptions);
-        SpriteSheet TileMapSheet = new SpriteSheet(context, TileMapBitmap, 128, 128);
+        SpriteSheet TileMapSheet = new SpriteSheet(context, TileMapBitmap, 64, 64);
 
         // Initialize Tilemap
         tilemap = new Tilemap(TileMapSheet);
@@ -87,19 +88,27 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         setFocusable(true);
     }
 
+    //get Instance of Player Character
+    public Player getPlayer()
+    {
+        return player;
+    }
 
+    //When the Context is Created
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder)
     {
         gameLoop.startLoop();
     }
 
+    //When the Context is Changed
     @Override
     public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int i, int i1, int i2)
     {
         Log.d("Game.java", "surfaceChanged()");
     }
 
+    //When Game is Destroyed
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder)
     {

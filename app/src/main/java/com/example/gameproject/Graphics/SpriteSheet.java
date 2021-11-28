@@ -26,15 +26,31 @@ public class SpriteSheet
     public Sprite[] getPlayerSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[8];
+
+        //Right Idle
         spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+
+        //Right Walk A
         spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+
+        //Right Walk B
         spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+
+        //Right Jump
         spriteArray[3] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+
+        //Left Idle
         spriteArray[4] = new Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+
+        //Left Walk A
         spriteArray[5] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+
+        //Left Walk B
         spriteArray[6] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
+
+        //Left Jump
         spriteArray[7] = new Sprite(this, new Rect(3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS, 4*SPRITE_WIDTH_PIXELS, 2*SPRITE_HEIGHT_PIXELS));
-        //spriteArray[8] = new Sprite(this, new Rect(0*128, 2*128, 1*128, 3*128));
+
         return spriteArray;
     }
 
@@ -42,8 +58,14 @@ public class SpriteSheet
     public Sprite[] getAIOneSpriteArray()
     {
         Sprite[] spriteArray = new Sprite[3];
+
+        //WalkA
         spriteArray[0] = new  Sprite(this, new Rect(0*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 1*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+
+        //WalkB
         spriteArray[1] = new Sprite(this, new Rect(1*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 2*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
+
+        //Death
         spriteArray[2] = new Sprite(this, new Rect(2*SPRITE_WIDTH_PIXELS, 0*SPRITE_HEIGHT_PIXELS, 3*SPRITE_WIDTH_PIXELS, 1*SPRITE_HEIGHT_PIXELS));
         return spriteArray;
     }
