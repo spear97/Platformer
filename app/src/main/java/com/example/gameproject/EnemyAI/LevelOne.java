@@ -14,25 +14,28 @@ public class LevelOne extends Enemy{
     int moveSpeed = (int) (SPEED_PIXELS_PER_SECOND*0.5);
     int fallSpeed = maxSpeed;
     boolean facingRight = false;
+    boolean left = true;
+    boolean right = false;
+    boolean falling = true;
 
     private void getNextPosition(){
 
         //movement of enemy 1
         if(left){
-            dx -= moveSpeed;
-            if(dx < -maxSpeed){
-                dx = -maxSpeed;
+            directionX -= moveSpeed;
+            if(directionX < -maxSpeed){
+                directionX = -maxSpeed;
             }
         }
         else if(right){
-            dx += moveSpeed;
-            if(dx > maxSpeed){
-                dx = maxSpeed;
+            directionX += moveSpeed;
+            if(directionX > maxSpeed){
+                directionX = maxSpeed;
             }
         }
 
         if(falling){
-            dy += fallSpeed;
+            directionY += fallSpeed;
         }
     }
 
@@ -42,12 +45,12 @@ public class LevelOne extends Enemy{
         setPosition(xtemp,ytemp);
 
         //switch direction if collision occurs
-        if(right && dx == 0){
+        if(right && directionX == 0){
             right = false;
             left = true;
             facingRight = false;
         }
-        else if(left && dx == 0){
+        else if(left && directionX == 0){
             right = true;
             left = false;
             facingRight = true;
