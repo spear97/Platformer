@@ -9,7 +9,7 @@ import com.example.gameproject.Graphics.SpriteSheet;
 public abstract class Tile
 {
 
-    public Rect mapLocationRect;
+    private Rect mapLocationRect;
 
     public enum TileType
     {
@@ -25,10 +25,13 @@ public abstract class Tile
         this.mapLocationRect = mapLocationRect;
     }
 
-    public static Tile getTile(int idxTileType, SpriteSheet spriteSheet, Rect mapLocationRect)
+    public Rect getRect()
     {
-        switch(TileType.values()[idxTileType])
-        {
+        return mapLocationRect;
+    }
+
+    public static Tile getTile(int idxTileType, SpriteSheet spriteSheet, Rect mapLocationRect) {
+        switch (TileType.values()[idxTileType]) {
             case DIRT_TILE:
                 return new DirtTile(spriteSheet, mapLocationRect);
             case GRASS_TILE:
@@ -42,15 +45,6 @@ public abstract class Tile
         }
     }
 
-    public boolean topCollisionPlayer(Player player)
-    {
-        return true;
-    }
-
-    public boolean bottomCollisionPlayer(Player player)
-    {
-        return true;
-    }
 
     public abstract void draw(Canvas canvas);
 }

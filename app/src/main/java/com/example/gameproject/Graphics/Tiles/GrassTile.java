@@ -16,6 +16,6 @@ public class GrassTile extends Tile {
 
     @Override
     public void draw(Canvas canvas) {
-        sprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
+        sprite.draw(canvas, getRect().left, getRect().top);
     }
 }

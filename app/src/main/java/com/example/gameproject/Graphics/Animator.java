@@ -7,15 +7,9 @@ import com.example.gameproject.GameObjects.Player;
 
 public class Animator
 {
-    enum Dir
-    {
-        Right,
-        Left
-    }
 
-    private Dir dir;
     private Sprite[] SpriteArray;
-    private int idxMovingFrame = 1;
+    private int idxMovingFrame = 1, idxIdle=0, IdxJump=3;
     private int updatesBeforeNextMoveFrame;
     private static final int MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME = 3;
 
@@ -24,7 +18,6 @@ public class Animator
     {
         this.SpriteArray = SpriteArray;
         updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
-        dir = Dir.Right;
     }
 
 /*****************************Draw Player Animations***********************************************/
@@ -32,14 +25,50 @@ public class Animator
     public void drawPlayer(Canvas canvas, GameDisplay gameDisplay, Player player)
     {
         //Allow for Character to Move
-        //TODO: Need to Make it Swap Left and Right
-        if((player.getJoystick().getActuatorX() > 0 || player.getJoystick().getActuatorX() < 0)
-                && !player.getJump())
+        if((player.getJoystick().getActuatorX() > 0 || player.getJoystick().getActuatorX() < 0))
         {
-            drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
+            if(player.getJoystick().getActuatorX() < 0)
+            {
+                idxIdle = 4;
+                IdxJump = 7;
+            }
+            else if(player.getJoystick().getActuatorX() > 0)
+            {
+                idxIdle = 0;
+                IdxJump = 3;
+            }
+
+            if(player.getJump())
+            {
+                drawFrame(canvas, gameDisplay, player, SpriteArray[IdxJump]);
+            }
+            if(!player.getJump())
+            {
+                drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
+            }
+            if(!player.getIsAlive())
+            {
+                drawFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]); //Temporary will change
+            }
+
             if(updatesBeforeNextMoveFrame == 0)
             {
-                toggleIdxPlayerWalkingFrame();
+
+                if(player.getJoystick().getActuatorX() > 0)
+                {
+                    if(idxMovingFrame == 1)
+                        idxMovingFrame = 2;
+                    else
+                        idxMovingFrame = 1;
+                }
+
+                else if(player.getJoystick().getActuatorX() < 0)
+                {
+                    if(idxMovingFrame == 5)
+                        idxMovingFrame = 6;
+                    else
+                        idxMovingFrame = 5;
+                }
                 updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
             }
             else if(updatesBeforeNextMoveFrame > 0)
@@ -50,41 +79,19 @@ public class Animator
         //Keep Player in an Idle Position
         else if(player.getJoystick().getActuatorX() == 0)
         {
-            drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
+            if(!player.getIsAlive())
+            {
+                drawFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]); //Temporary will change
+            }
+            if(player.getJump())
+            {
+                drawFrame(canvas, gameDisplay, player, SpriteArray[IdxJump]);
+            }
+            else
+            {
+                drawFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]);
+            }
         }
-
-        //have Player Jump
-        if(player.getJump())
-        {
-            drawFrame(canvas, gameDisplay, player, SpriteArray[3]);
-        }
-        //Keep Player in an Idle Position
-        else if(!player.getJump())
-        {
-            drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
-        }
-
-        //Player in Death Frame <-- Currently in Idle Position
-        //Will be replaced later once a solution can be found
-        if(!player.getIsAlive())
-        {
-            drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
-        }
-        //Keep Player in an Idle Position
-        else if(player.getIsAlive())
-        {
-            drawFrame(canvas, gameDisplay, player, SpriteArray[0]);
-        }
-    }
-
-    //Handles Walk Cycle Animations
-    //TODO: Need to Make it Swap Left and Right
-    private void toggleIdxPlayerWalkingFrame()
-    {
-        if(idxMovingFrame == 1)
-            idxMovingFrame = 2;
-        else
-            idxMovingFrame = 1;
     }
 
 /*************************************Draw Enemy One Animations************************************/
