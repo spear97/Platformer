@@ -98,6 +98,12 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         setFocusable(true);
     }
 
+    //get Instance of Bounds
+    public Bounds getBounds()
+    {
+        return bounds;
+    }
+
     //get Instance of Player Character
     public Player getPlayer()
     {
