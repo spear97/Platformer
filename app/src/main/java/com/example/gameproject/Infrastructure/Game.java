@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -22,8 +21,6 @@ import com.example.gameproject.Graphics.Tiles.Tile;
 import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.R;
 
-import java.util.logging.Level;
-
 public class Game extends SurfaceView implements SurfaceHolder.Callback
 {
     private final Tilemap tilemap;
@@ -33,11 +30,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private final GameDisplay gameDisplay;
     private GameLoop gameLoop;
     private Joystick joystick;
-    private int height, width, spawnX, spawnY;
-    private Tile playerSpawnPoint;
-    private Bounds bounds;
+    private int height;
+    private int width;
 
-    //Constructor
     public Game(Context context)
     {
         super(context);
@@ -71,18 +66,13 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         //Initialize TileMapSheet
         Bitmap TileMapBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tilesheet, bitmapOptions);
-        SpriteSheet TileMapSheet = new SpriteSheet(context, TileMapBitmap, 64, 64);
+        SpriteSheet TileMapSheet = new SpriteSheet(context, TileMapBitmap, 128, 128);
 
         // Initialize Tilemap
         tilemap = new Tilemap(TileMapSheet);
-
-        //Initialize Bounds for Level
-        bounds = new Bounds(47, 9555, 54, 2488);
-
-        // Initialize and Set Spawn Location for Player Character
-        playerSpawnPoint = tilemap.getTile(18, 10);
-        spawnX = playerSpawnPoint.mapLocationRect.left;
-        spawnY = playerSpawnPoint.mapLocationRect.top;
+        Tile playerSpawnPoint = tilemap.getTile(18, 10);
+        int spawnX = playerSpawnPoint.mapLocationRect.left; //1280
+        int spawnY = playerSpawnPoint.mapLocationRect.top;
 
         //Initialize Player
         Animator playerAnimator = new Animator(spriteSheet.getPlayerSpriteArray());
@@ -97,27 +87,19 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         setFocusable(true);
     }
 
-    //Get the Collision of the Game's World
-    public Bounds getBounds()
-    {
-        return bounds;
-    }
 
-    //When the Context is Created
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder surfaceHolder)
     {
         gameLoop.startLoop();
     }
 
-    //When the Context is Changed
     @Override
     public void surfaceChanged(@NonNull SurfaceHolder surfaceHolder, int i, int i1, int i2)
     {
         Log.d("Game.java", "surfaceChanged()");
     }
 
-    //When Game is Destroyed
     @Override
     public void surfaceDestroyed(@NonNull SurfaceHolder surfaceHolder)
     {
@@ -163,8 +145,8 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         joystick.draw(canvas);
         player.draw(canvas, gameDisplay);
 
-        performance.drawFPS(canvas, player);
-        performance.drawUPS(canvas, player);
+        performance.drawFPS(canvas);
+        performance.drawUPS(canvas);
     }
 
     //Update Joystick, Player, and GameDisplay as Game Proceeds to run
