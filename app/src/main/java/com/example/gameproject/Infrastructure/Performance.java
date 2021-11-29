@@ -23,29 +23,28 @@ public class Performance
     //Draw Performance Metrics to the Screen
     public void draw(Canvas canvas)
     {
-        drawUPS(canvas);
-        drawFPS(canvas);
+
     }
 
     //Draw UPS(Units Per Second) to the Screen
-    public void drawUPS(Canvas canvas)
+    public void drawUPS(Canvas canvas, Player player)
     {
-        String averageUPS = Double.toString(gameLoop.getAverageUPS());
+        String averageUPS = Double.toString(player.getPositionX());
         Paint paint = new Paint();
         int color = ContextCompat.getColor(context, R.color.white);
         paint.setColor(color);
         paint.setTextSize(50);
-        canvas.drawText("UPS: " + averageUPS, 100, 100, paint);
+        canvas.drawText("X: " + averageUPS, 100, 100, paint);
     }
 
     //Draw FPS(Frames Per Second) to the Screen
-    public void drawFPS(Canvas canvas)
+    public void drawFPS(Canvas canvas, Player player)
     {
-        String averageFPS = Double.toString(gameLoop.getAverageFPS());
+        String averageFPS = Double.toString(player.getPositionY());
         Paint paint = new Paint();
         int color = ContextCompat.getColor(context, R.color.white);
         paint.setColor(color);
         paint.setTextSize(50);
-        canvas.drawText("FPS: " + averageFPS, 100, 200, paint);
+        canvas.drawText("Y: " + averageFPS, 100, 200, paint);
     }
 }
