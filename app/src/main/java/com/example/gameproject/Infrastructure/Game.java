@@ -77,8 +77,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         tilemap = new Tilemap(TileMapSheet);
 
         //Initialize Bounds for Level
-        //Tile Left = tilemap.getTile(19,0), Right = tilemap.getTile(19,149), Top = tilemap.getTile(0,74), Bottom = tilemap.getTile(39,74);
-        //bounds = new Bounds(new Rect(Left.getRect().left, Top.getRect().top, Right.getRect().right, Bottom.getRect().bottom));
+        bounds = new Bounds(47, 9555, 54, 2488);
 
         // Initialize and Set Spawn Location for Player Character
         playerSpawnPoint = tilemap.getTile(18, 10);
@@ -96,6 +95,12 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         // Enable view's focus event for touch mode
         setFocusable(true);
+    }
+
+    //Get the Collision of the Game's World
+    public Bounds getBounds()
+    {
+        return bounds;
     }
 
     //When the Context is Created

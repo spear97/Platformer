@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.gameproject.Infrastructure.Game;
 import com.example.gameproject.Infrastructure.GameDisplay;
 import com.example.gameproject.Infrastructure.GameLoop;
 import com.example.gameproject.Graphics.Animator;
@@ -21,6 +22,7 @@ public class Player extends Circle
     private HealthBar healthBar;
     private int healthPoints = MAX_HEALTH_POINTS;
     private Animator animator;
+
 
     //Player Character Constructor that will setup Animations, User Input, and Position that Player
     //Exists in the world
