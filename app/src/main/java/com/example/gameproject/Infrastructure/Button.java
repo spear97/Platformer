@@ -1,6 +1,4 @@
 package com.example.gameproject.Infrastructure;
 
-public class Bounds
-{
-
+public class Button {
 }

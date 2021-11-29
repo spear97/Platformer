@@ -13,10 +13,10 @@ public abstract class Tile
 
     public enum TileType
     {
-        DIRT_TILE,
-        GRASS_TILE,
-        SKY_TILE,
-        WATER_TILE
+        DIRT_TILE, // 0
+        GRASS_TILE, // 1
+        SKY_TILE, // 2
+        WATER_TILE // 3
     }
 
     public Tile(Rect mapLocationRect)
