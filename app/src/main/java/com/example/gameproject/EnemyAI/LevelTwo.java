@@ -19,8 +19,8 @@ public class LevelTwo extends Enemy{
     int fallSpeed = maxSpeed;
     boolean facingRight = false;
 
-    if (Collision.tileCollisionRight(this.thisEnemy, this.thisEnemy.getSpeed(), currentLevel)
-            == false && (Math.abs((this.thisEnemy.getX() + this.thisEnemy.getSpeed())
+    if (Collision.tileCollisionRight(this.Enemy, this.Enemy.getSpeed(), currentLevel)
+            == false && (Math.abs((this.LevelTwo.getX() + this.LevelTwo.getSpeed())
             - this.player.getX()) < Collision.getXDist(this.thisEnemy, this.player))) {
 
         //Should/Can go right
