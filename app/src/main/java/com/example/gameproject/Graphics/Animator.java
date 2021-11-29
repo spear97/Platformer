@@ -20,7 +20,7 @@ public class Animator
         updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
     }
 
-/*****************************Draw Player Animations***********************************************/
+    /*****************************Draw Player Animations***********************************************/
     //Draws animations for Player Character
     public void drawPlayer(Canvas canvas, GameDisplay gameDisplay, Player player)
     {
@@ -94,33 +94,33 @@ public class Animator
         }
     }
 
-/*************************************Draw Enemy One Animations************************************/
-public void drawEnemyOne(Canvas canvas, GameDisplay gameDisplay)
-{
+    /*************************************Draw Enemy One Animations************************************/
+    public void drawEnemyOne(Canvas canvas, GameDisplay gameDisplay)
+    {
 
-}
-/*************************************Draw Enemy Two Animations************************************/
-public void drawEnemyTwo(Canvas canvas, GameDisplay gameDisplay)
-{
+    }
+    /*************************************Draw Enemy Two Animations************************************/
+    public void drawEnemyTwo(Canvas canvas, GameDisplay gameDisplay)
+    {
 
-}
-/*************************************Draw Enemy Three Animations**********************************/
-public void drawEnemyThree(Canvas canvas, GameDisplay gameDisplay)
-{
+    }
+    /*************************************Draw Enemy Three Animations**********************************/
+    public void drawEnemyThree(Canvas canvas, GameDisplay gameDisplay)
+    {
 
-}
-/*************************************Draw Boss Animations*****************************************/
-public void drawEnemyBoss(Canvas canvas, GameDisplay gameDisplay)
-{
+    }
+    /*************************************Draw Boss Animations*****************************************/
+    public void drawEnemyBoss(Canvas canvas, GameDisplay gameDisplay)
+    {
 
-}
-/*************************************Draw Frame Function******************************************/
+    }
+    /*************************************Draw Frame Function******************************************/
     //Draw the Frame that the Animator will be using
     public void drawFrame(Canvas canvas, GameDisplay gameDisplay, Player player, Sprite sprite)
     {
         sprite.draw(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(player.getPositionX())
                         - sprite.getWidth()/2,
-                            (int) gameDisplay.gameToDisplayCoordinatesY(player.getPositionY())
+                (int) gameDisplay.gameToDisplayCoordinatesY(player.getPositionY())
                         - sprite.getHeight()/2);
     }
 }

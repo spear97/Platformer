@@ -17,6 +17,6 @@ public class DirtTile extends Tile
 
     @Override
     public void draw(Canvas canvas) {
-        sprite.draw(canvas, getRect().left, getRect().top);
+        sprite.draw(canvas, mapLocationRect.left, mapLocationRect.top);
     }
 }
