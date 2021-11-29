@@ -9,7 +9,7 @@ import com.example.gameproject.Graphics.SpriteSheet;
 public abstract class Tile
 {
 
-    public Rect mapLocationRect;
+    private Rect mapLocationRect;
 
     public enum TileType
     {
@@ -23,6 +23,11 @@ public abstract class Tile
     {
 
         this.mapLocationRect = mapLocationRect;
+    }
+
+    public Rect getRect()
+    {
+        return mapLocationRect;
     }
 
     public static Tile getTile(int idxTileType, SpriteSheet spriteSheet, Rect mapLocationRect) {

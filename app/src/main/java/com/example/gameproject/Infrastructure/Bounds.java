@@ -2,11 +2,11 @@ package com.example.gameproject.Infrastructure;
 
 import android.graphics.Rect;
 
-public class LevelBounds
+public class Bounds
 {
     private Rect bound;
 
-    public LevelBounds(Rect bound)
+    public Bounds(Rect bound)
     {
         this.bound = bound;
     }

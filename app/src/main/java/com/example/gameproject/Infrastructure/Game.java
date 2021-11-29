@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -21,6 +22,8 @@ import com.example.gameproject.Graphics.Tiles.Tile;
 import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.R;
 
+import java.util.logging.Level;
+
 public class Game extends SurfaceView implements SurfaceHolder.Callback
 {
     private final Tilemap tilemap;
@@ -30,8 +33,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private final GameDisplay gameDisplay;
     private GameLoop gameLoop;
     private Joystick joystick;
-    private int height;
-    private int width;
+    private int height, width, spawnX, spawnY;
+    private Tile playerSpawnPoint;
+    private Bounds bounds;
 
     //Constructor
     public Game(Context context)
@@ -71,9 +75,15 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         // Initialize Tilemap
         tilemap = new Tilemap(TileMapSheet);
-        Tile playerSpawnPoint = tilemap.getTile(18, 10);
-        int spawnX = playerSpawnPoint.mapLocationRect.left; //1280
-        int spawnY = playerSpawnPoint.mapLocationRect.top;
+
+        //Initialize Bounds for Level
+        Tile Left = tilemap.getTile(19,0), Right = tilemap.getTile(19,149), Top = tilemap.getTile(0,74), Bottom = tilemap.getTile(39,74);
+        bounds = new Bounds(new Rect(Left.getRect().left, Top.getRect().top, Right.getRect().right, Bottom.getRect().bottom));
+
+        // Initialize and Set Spawn Location for Player Character
+        playerSpawnPoint = tilemap.getTile(18, 10);
+        spawnX = playerSpawnPoint.getRect().left;
+        spawnY = playerSpawnPoint.getRect().top;
 
         //Initialize Player
         Animator playerAnimator = new Animator(spriteSheet.getPlayerSpriteArray());
