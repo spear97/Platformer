@@ -27,14 +27,6 @@ public class Player extends Circle
     private Tile[] Top, Bottom, Left, Right;
     public boolean canMove = true;
 
-    private enum Direction
-    {
-        UP,
-        DOWN,
-        LEFT,
-        RIGHT
-    }
-
     //Player Character Constructor that will setup Animations, User Input, and Position that Player
     //Exists in the world
     public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Animator animator, Tilemap world)
@@ -63,39 +55,7 @@ public class Player extends Circle
 
     private void collision()
     {
-        //Determine the Direction that Player is moving
 
-        Direction dir = Direction.RIGHT;
-
-        if(velocityY < 0)
-        {
-            dir = Direction.UP;
-        }
-        else if(velocityY > 0)
-        {
-            dir = Direction.DOWN;
-        }
-        else if(velocityX < 0)
-        {
-            dir = Direction.LEFT;
-        }
-       else
-        {
-            dir = Direction.RIGHT;
-        }
-
-        //Predict which Collision Player will encounter
-        switch(dir)
-        {
-            case UP:
-                break;
-            case DOWN:
-                break;
-            case LEFT:
-                break;
-            case RIGHT:
-                break;
-        }
     }
 
 
