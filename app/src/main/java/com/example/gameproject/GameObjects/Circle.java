@@ -31,11 +31,25 @@ public abstract class Circle extends GameObject
     {
         double distance = getDistanceBetweenObjects(obj1, obj2);
         double distanceToCollision = obj1.getRadius() + obj2.getRadius();
-        if (distance < distanceToCollision)
+        if (distance < distanceToCollision) {
             return true;
+        }
         else
             return false;
     }
+
+   /* public static boolean gravity(Circle obj1, Circle obj2){
+        if(collisionDown == false) {
+            characterYnext = characterY + fall;          //Get Next Position
+            if(NextMovementCollides()){                  //Basically if next position is too far.
+                characterYnext += difference_between(CharacterY,Ground);     //This should move the character to the ground state.
+                fall = 0;                                                   //No longer falling so reset the value.
+            }
+            else{
+                characterY += fall; fall++;
+            }       //Otherwise continue falling like normal.
+        }
+    }*/
 
     public void draw(Canvas canvas, GameDisplay gameDisplay)
     {
