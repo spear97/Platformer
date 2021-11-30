@@ -50,7 +50,11 @@ public class Player extends Circle
         // Update position, if Position is in Bounds
         positionX += velocityX;
 
-        //positionY += velocityY;
+        //Allows Player to Jump Up
+        if(joystick.getActuatorY() < 0)
+        {
+            positionY += velocityY;
+        }
 
         // Update direction
         if (velocityX != 0 || velocityY != 0)

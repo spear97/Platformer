@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -30,8 +31,8 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private final GameDisplay gameDisplay;
     private GameLoop gameLoop;
     private Joystick joystick;
-    private int height;
-    private int width;
+    private int height, width;
+    private Bounds bounds;
 
     public Game(Context context)
     {
@@ -74,7 +75,10 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         int spawnX = playerSpawnPoint.mapLocationRect.left; //1280
         int spawnY = playerSpawnPoint.mapLocationRect.top;
 
-        //Initialize Player
+        // Create Bounds
+        bounds = new Bounds(new Rect(0, 0, 0, 0));
+
+        // Initialize Player
         Animator playerAnimator = new Animator(spriteSheet.getPlayerSpriteArray());
         player = new Player(context, joystick, spawnX, spawnY, 64, playerAnimator);
 
@@ -113,18 +117,21 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         // Handle user input touch event actions
         switch(event.getAction())
         {
+            //When Joystick is Pressed By the Player
             case MotionEvent.ACTION_DOWN:
                 if(joystick.isPressed((double)event.getX(), (double)event.getY()))
                 {
                     joystick.setIsPressed(true);
                 }
                 return true;
+            //When Joystick is Being Moved By the Player
             case MotionEvent.ACTION_MOVE:
                 if(joystick.getIsPressed())
                 {
                     joystick.setActuator((double)event.getX(), (double)event.getY());
                 }
                 return true;
+            //When the Joystick is No Longer being Pressed
             case MotionEvent.ACTION_UP:
                 joystick.setIsPressed(false);
                 joystick.resetActuator();
