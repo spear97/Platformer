@@ -51,7 +51,7 @@ public class Player extends Circle
 
     private void collision()
     {
-
+        Tile closest = getTileCollision(animator.getSprite(), positionX, positionY);
     }
 
     //Manage Player Movement

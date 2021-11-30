@@ -20,6 +20,12 @@ public class Animator
         updatesBeforeNextMoveFrame = MAX_UPDATES_BEFORE_NEXT_MOVE_FRAME;
     }
 
+    //Return first Frame Sprite, will be used for Collision purposes.
+    public Sprite getSprite()
+    {
+        return SpriteArray[0];
+    }
+
     /*****************************Draw Player Animations***********************************************/
     //Draws animations for Player Character
     public void drawPlayer(Canvas canvas, GameDisplay gameDisplay, Player player)
