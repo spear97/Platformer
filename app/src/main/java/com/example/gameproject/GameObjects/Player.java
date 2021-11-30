@@ -25,6 +25,7 @@ public class Player extends Circle
     private Animator animator;
     private Tilemap world;
     private Tile[] Top, Bottom, Left, Right;
+    public boolean canMove = true;
 
     private enum Direction
     {
@@ -50,38 +51,8 @@ public class Player extends Circle
         //Set Up the Animator what will handle the Player's Animations
         this.animator = animator;
 
+        //Get the World that the Player will be Playing in
         this.world = world;
-
-        for(int n = 0; n < 4; n++)
-        {
-            switch(n)
-            {
-                case 0: //Top
-                    for(int j = 0; j < 150; j++)
-                    {
-                        Top[j] = world.getTile(0, j);
-                    }
-                    break;
-                case 1: //Bottom
-                    for(int j = 0; j < 150; j++)
-                    {
-                        Bottom[j] = world.getTile(49, j);
-                    }
-                    break;
-                case 2: //Left
-                    for(int i = 0; i < 40; i++)
-                    {
-                        Left[i] = world.getTile(i, 0);
-                    }
-                    break;
-                case 3: //Right
-                    for(int i = 0; i < 4; i++)
-                    {
-                        Right[i] = world.getTile(i, 49);
-                    }
-                    break;
-            }
-        }
     }
 
     //How the Player will update for each frame that is ticked though each frame
@@ -136,12 +107,15 @@ public class Player extends Circle
         velocityY = joystick.getActuatorY()*MAX_SPEED;
 
         // Update position, if Position is in Bounds
-        positionX += velocityX;
+        if(canMove)
+        {
+            positionX += velocityX;
+        }
 
         //Allows Player to Jump Up
-        if(joystick.getActuatorY() < 0)
+        if(joystick.getActuatorY() < 0 && canMove)
         {
-            positionY += velocityY;
+            //positionY += velocityY;
         }
 
         // Update direction
