@@ -87,8 +87,8 @@ public abstract class Circle extends GameObject
                 fall = 0;                                                   //No longer falling so reset the value.
             }
             else{
-                characterY += fall; fall++;
-            }       //Otherwise continue falling like normal.
+                characterY += fall; fall++;     //Otherwise continue falling like normal.
+            }
         }
     }*/
 
