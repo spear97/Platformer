@@ -80,6 +80,18 @@ public abstract class Circle extends GameObject
         return null;
     }
 
+    //TODO: Make closestLeftTile
+    //public Tile getclosestLeftTile(Sprite sprite, double newX, double newY) {return null;}
+
+    //TODO: Make closestTopTile
+    //public Tile getclosestTopTile(Sprite sprite, double newX, double newY) {return null;}
+
+    //TODO: Make closestRightTile
+    //public Tile closestRightTile(Sprite sprite, double newX, double newY) {return null;}
+
+    //TODO: Make closestBottomTile
+    //public Tile closestBottomTile(Sprite sprite, double newX, double newY) {return null;}
+
    /* public static boolean gravity(Circle obj1, Circle obj2){
         if(collisionDown == false) {
             characterYnext = characterY + fall;          //Get Next Position
