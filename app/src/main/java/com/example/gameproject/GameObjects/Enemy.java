@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.Infrastructure.GameLoop;
 import com.example.gameproject.R;
 
@@ -18,9 +19,9 @@ public class Enemy extends Circle
     private static double updatesUntilNextSpawn = UPDATES_PER_SPAWN;
     private Player player;
 
-    public Enemy(Context context, Player player, double positionX, double positionY, double radius)
+    public Enemy(Context context, Player player, double positionX, double positionY, double radius, Tilemap world)
     {
-        super(context, ContextCompat.getColor(context, R.color.enemy), positionX, positionY, radius);
+        super(context, ContextCompat.getColor(context, R.color.enemy), positionX, positionY, radius, world);
         this.player = player;
     }
 
@@ -29,14 +30,15 @@ public class Enemy extends Circle
      * @param context
      * @param player
      */
-    public Enemy(Context context, Player player)
+    public Enemy(Context context, Player player, Tilemap world)
     {
         super(
                 context,
                 ContextCompat.getColor(context, R.color.enemy),
                 Math.random()*1000,
                 Math.random()*1000,
-                30
+                30,
+                world
         );
         this.player = player;
     }
