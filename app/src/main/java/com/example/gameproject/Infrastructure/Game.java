@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -31,7 +32,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private GameLoop gameLoop;
     private Joystick joystick;
     private int height, width;
-
+    private Bounds bounds;
 
     public Game(Context context)
     {
@@ -75,6 +76,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         int spawnY = playerSpawnPoint.mapLocationRect.top;
 
         // Create Bounds
+        bounds = new Bounds(new Rect(0, 0, 0, 0));
 
         // Initialize Player
         Animator playerAnimator = new Animator(spriteSheet.getPlayerSpriteArray());
