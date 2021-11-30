@@ -2,6 +2,7 @@ package com.example.gameproject.GameObjects;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 
 import androidx.core.content.ContextCompat;
 
@@ -51,7 +52,8 @@ public class Player extends Circle
 
     private void collision()
     {
-
+        Tile closest = getTileCollision(animator.getSprite(), positionX, positionY);
+        Rect closestRect = closest.mapLocationRect;
     }
 
     //Manage Player Movement
