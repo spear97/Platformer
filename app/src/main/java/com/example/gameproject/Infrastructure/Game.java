@@ -32,7 +32,6 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private GameLoop gameLoop;
     private Joystick joystick;
     private int height, width;
-    private Bounds bounds;
 
     public Game(Context context)
     {
@@ -75,12 +74,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         int spawnX = playerSpawnPoint.mapLocationRect.left; //1280
         int spawnY = playerSpawnPoint.mapLocationRect.top;
 
-        // Create Bounds
-        bounds = new Bounds(new Rect(0, 0, 0, 0));
-
         // Initialize Player
         Animator playerAnimator = new Animator(spriteSheet.getPlayerSpriteArray());
-        player = new Player(context, joystick, spawnX, spawnY, 64, playerAnimator);
+        player = new Player(context, joystick, spawnX, spawnY, 64, playerAnimator, tilemap);
 
         // Initialize display and center it around the player
         DisplayMetrics displayMetrics = new DisplayMetrics();

@@ -14,7 +14,7 @@ import com.example.gameproject.Infrastructure.GameDisplay;
 
 public class Tilemap {
 
-    private final MapLayout mapLayout;
+    private MapLayout mapLayout;
     private Tile[][] tilemap;
     private SpriteSheet spriteSheet;
     private Bitmap mapBitmap;
