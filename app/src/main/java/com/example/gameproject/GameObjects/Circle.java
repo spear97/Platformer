@@ -20,6 +20,7 @@ public abstract class Circle extends GameObject
     protected Paint paint;
     protected Tilemap world;
     protected List<Tile> tiles;
+    private SkyTile sky;
 
     public Circle(Context context, int color, double positionX, double positionY, double radius, Tilemap world)
     {
@@ -68,7 +69,7 @@ public abstract class Circle extends GameObject
         Tile[][] tilemap = world.getTileMap();
         for (int x=fromTileX; x<=toTileX; x++) {
             for (int y=fromTileY; y<=toTileY; y++) {
-                if (x < 0 || x >= tilemap[0].length /*|| world.getTile(x, y).TileType[] !=*/)
+                if (x < 0 || x >= tilemap[0].length || world.getTile(x, y) != sky)
                 {
                     // collision found, return the tile
                     return world.getTile(x, y);
