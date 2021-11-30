@@ -24,7 +24,6 @@ public class Player extends Circle
     private int healthPoints = MAX_HEALTH_POINTS;
     private Animator animator;
     private Tilemap world;
-    private Tile[] Top, Bottom, Left, Right;
     public boolean canMove = true;
 
     //Player Character Constructor that will setup Animations, User Input, and Position that Player
@@ -32,7 +31,7 @@ public class Player extends Circle
     public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Animator animator, Tilemap world)
     {
         //Inherit functionality from the Circle Class
-        super(context, ContextCompat.getColor(context, R.color.player), positionX, positionY, radius);
+        super(context, ContextCompat.getColor(context, R.color.player), positionX, positionY, radius, world);
 
         //Set Up Joystick that will Control Player
         this.joystick = joystick;
@@ -42,9 +41,6 @@ public class Player extends Circle
 
         //Set Up the Animator what will handle the Player's Animations
         this.animator = animator;
-
-        //Get the World that the Player will be Playing in
-        this.world = world;
     }
 
     //How the Player will update for each frame that is ticked though each frame
@@ -57,7 +53,6 @@ public class Player extends Circle
     {
 
     }
-
 
     //Manage Player Movement
     private void movement()

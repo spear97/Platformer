@@ -4,14 +4,16 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.Infrastructure.GameDisplay;
 
 public abstract class Circle extends GameObject
 {
     protected double radius;
     protected Paint paint;
+    protected Tilemap world;
 
-    public Circle(Context context, int color, double positionX, double positionY, double radius)
+    public Circle(Context context, int color, double positionX, double positionY, double radius, Tilemap world)
     {
         super(positionX, positionY);
         this.radius = radius;
@@ -19,6 +21,9 @@ public abstract class Circle extends GameObject
         // Set colors of circle
         paint = new Paint();
         paint.setColor(color);
+
+        //The World that Circle would be Interacting with
+        this.world = world;
     }
 
     /**
