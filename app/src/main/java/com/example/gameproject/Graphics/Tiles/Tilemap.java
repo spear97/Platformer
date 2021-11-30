@@ -78,6 +78,8 @@ public class Tilemap {
         return tilemap[i][j];
     }
 
+    public Tile[][] getTileMap(){return tilemap;}
+
     //Draw the Tile to the Map
     public void draw(Canvas canvas, GameDisplay gameDisplay) {
         canvas.drawBitmap(
