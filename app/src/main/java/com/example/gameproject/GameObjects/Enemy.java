@@ -1,11 +1,13 @@
 package com.example.gameproject.GameObjects;
 
 import android.content.Context;
+import android.graphics.Canvas;
 
 import androidx.core.content.ContextCompat;
 
 import com.example.gameproject.Graphics.Animator;
 import com.example.gameproject.Graphics.Tiles.Tilemap;
+import com.example.gameproject.Infrastructure.GameDisplay;
 import com.example.gameproject.Infrastructure.GameLoop;
 import com.example.gameproject.R;
 
@@ -51,6 +53,11 @@ public class Enemy extends Circle
             updatesUntilNextSpawn --;
             return false;
         }
+    }
+
+    public void draw(Canvas canvas, GameDisplay gameDisplay)
+    {
+        animator.drawEnemyOne(canvas, gameDisplay, this);
     }
 
     public void update()

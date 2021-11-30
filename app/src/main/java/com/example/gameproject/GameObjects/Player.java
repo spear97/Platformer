@@ -89,9 +89,9 @@ public class Player extends Circle
     public void draw(Canvas canvas, GameDisplay gameDisplay)
     {
         animator.drawPlayer(canvas, gameDisplay, this);
-
         healthBar.draw(canvas, gameDisplay);
     }
+
 
     //Return the HealthPoints that Player currently has
     public int getHealthPoint()

@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 
 import com.example.gameproject.Infrastructure.GameDisplay;
 import com.example.gameproject.GameObjects.Player;
+import com.example.gameproject.GameObjects.Enemy;
 
 public class Animator
 {
@@ -105,8 +106,10 @@ public class Animator
     }
 
     /*************************************Draw Enemy One Animations************************************/
-    public void drawEnemyOne(Canvas canvas, GameDisplay gameDisplay)
+    public void drawEnemyOne(Canvas canvas, GameDisplay gameDisplay, Enemy enemy)
     {
+        drawFrame(canvas, gameDisplay, enemy, SpriteArray[idxMovingFrame]);
+
         if(idxMovingFrame == 1)
             idxMovingFrame = 2;
         else
