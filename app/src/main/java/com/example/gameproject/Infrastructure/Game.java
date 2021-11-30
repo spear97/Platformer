@@ -64,6 +64,10 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.playerspritesheet, bitmapOptions);
         SpriteSheet spriteSheet = new SpriteSheet(context, bitmap, 128, 128);
 
+        //Create AI1 Player SpriteSheet
+        Bitmap AI1bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.enemy1spritesheet, bitmapOptions);
+        SpriteSheet AI1_spriteSheet = new SpriteSheet(context, AI1bitmap, 128, 128);
+
         //Initialize TileMapSheet
         Bitmap TileMapBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.tilesheet, bitmapOptions);
         SpriteSheet TileMapSheet = new SpriteSheet(context, TileMapBitmap, 128, 128);

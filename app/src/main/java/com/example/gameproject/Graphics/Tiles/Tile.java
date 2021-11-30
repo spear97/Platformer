@@ -10,6 +10,7 @@ public abstract class Tile
 {
 
     public Rect mapLocationRect;
+    public static int type;
 
     public enum TileType
     {

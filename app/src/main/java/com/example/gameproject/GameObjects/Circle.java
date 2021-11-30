@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 import com.example.gameproject.Graphics.Sprite;
+import com.example.gameproject.Graphics.Tiles.SkyTile;
 import com.example.gameproject.Graphics.Tiles.Tile;
 import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.Infrastructure.GameDisplay;
@@ -50,7 +51,7 @@ public abstract class Circle extends GameObject
             return false;
     }
 
-    /*public Point getTileCollision(Sprite sprite, double newX, double newY)
+    public Tile getTileCollision(Sprite sprite, double newX, double newY)
     {
         double fromX = Math.min(getPositionX(), newX);
         double fromY = Math.min(getPositionY(), newY);
@@ -67,17 +68,16 @@ public abstract class Circle extends GameObject
         Tile[][] tilemap = world.getTileMap();
         for (int x=fromTileX; x<=toTileX; x++) {
             for (int y=fromTileY; y<=toTileY; y++) {
-                if (x < 0 || x >= tilemap[0].length || map.getTile(x, y) != null)
+                if (x < 0 || x >= tilemap[0].length /*|| world.getTile(x, y).TileType[] !=*/)
                 {
                     // collision found, return the tile
-                    pointCache.setLocation(x, y);
-                    return pointCache;
+                    return world.getTile(x, y);
                 }
             }
         }
         // no collision found
         return null;
-    }*/
+    }
 
    /* public static boolean gravity(Circle obj1, Circle obj2){
         if(collisionDown == false) {
