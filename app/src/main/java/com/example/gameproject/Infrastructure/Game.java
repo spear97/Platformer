@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 
 import com.example.gameproject.GameObjects.Player;
+import com.example.gameproject.GameObjects.Enemy;
 import com.example.gameproject.Graphics.Animator;
 import com.example.gameproject.Graphics.SpriteSheet;
 import com.example.gameproject.Graphics.Tiles.Tile;
@@ -28,6 +29,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private final GameOver gameOver;
     private final Performance performance;
     private final Player player;
+    private final Enemy enemy;
     private final GameDisplay gameDisplay;
     private GameLoop gameLoop;
     private Joystick joystick;
@@ -81,6 +83,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         // Initialize Player
         Animator playerAnimator = new Animator(spriteSheet.getPlayerSpriteArray());
         player = new Player(context, joystick, spawnX, spawnY, 64, playerAnimator, tilemap);
+
+        Animator enemy1Animator = new Animator(spriteSheet.getAIOneSpriteArray());
+        enemy = new Enemy(context, player, spawnX, spawnY, 64, enemy1Animator, tilemap);
 
         // Initialize display and center it around the player
         DisplayMetrics displayMetrics = new DisplayMetrics();

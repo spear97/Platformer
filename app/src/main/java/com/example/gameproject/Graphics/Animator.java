@@ -101,7 +101,10 @@ public class Animator
     /*************************************Draw Enemy One Animations************************************/
     public void drawEnemyOne(Canvas canvas, GameDisplay gameDisplay)
     {
-
+        if(idxMovingFrame == 1)
+            idxMovingFrame = 2;
+        else
+            idxMovingFrame = 1;
     }
     /*************************************Draw Enemy Two Animations************************************/
     public void drawEnemyTwo(Canvas canvas, GameDisplay gameDisplay)

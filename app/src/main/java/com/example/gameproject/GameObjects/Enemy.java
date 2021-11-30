@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.core.content.ContextCompat;
 
+import com.example.gameproject.Graphics.Animator;
 import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.Infrastructure.GameLoop;
 import com.example.gameproject.R;
@@ -18,11 +19,13 @@ public class Enemy extends Circle
     private static final double UPDATES_PER_SPAWN = GameLoop.MAX_UPS/SPAWNS_PER_SECOND;
     private static double updatesUntilNextSpawn = UPDATES_PER_SPAWN;
     private Player player;
+    private Animator animator;
 
-    public Enemy(Context context, Player player, double positionX, double positionY, double radius, Tilemap world)
+    public Enemy(Context context, Player player, double positionX, double positionY, double radius, Animator animator, Tilemap world)
     {
         super(context, ContextCompat.getColor(context, R.color.enemy), positionX, positionY, radius, world);
         this.player = player;
+        this.animator = animator;
     }
 
     /**
@@ -30,18 +33,6 @@ public class Enemy extends Circle
      * @param context
      * @param player
      */
-    public Enemy(Context context, Player player, Tilemap world)
-    {
-        super(
-                context,
-                ContextCompat.getColor(context, R.color.enemy),
-                Math.random()*1000,
-                Math.random()*1000,
-                30,
-                world
-        );
-        this.player = player;
-    }
 
     /**
      * readyToSpawn checks if a new enemy should spawn, according to the decided number of spawns
