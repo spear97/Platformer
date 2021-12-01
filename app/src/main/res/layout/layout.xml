@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pixel"
+    tools:context=".Infrastructure.MainActivity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="217dp"
+        android:layout_marginTop="23dp"
+        android:text="How to Play:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="19dp"
+        android:backgroundTint="#3F51B5"
+        android:onClick="OnTap3"
+        android:text="Return" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="566dp"
+        android:layout_height="227dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="106dp"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="73dp"
+        android:text="Try to avoid getting hit by the enemy on each level by moving left, right, or jumping. Once you beat a level you move up to the next level!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+</RelativeLayout>
