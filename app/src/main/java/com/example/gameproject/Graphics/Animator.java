@@ -47,15 +47,15 @@ public class Animator
 
             if(player.getJump())
             {
-                drawFrame(canvas, gameDisplay, player, SpriteArray[IdxJump]);
+                drawPlayerFrame(canvas, gameDisplay, player, SpriteArray[IdxJump]);
             }
             if(!player.getJump())
             {
-                drawFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
+                drawPlayerFrame(canvas, gameDisplay, player, SpriteArray[idxMovingFrame]);
             }
             if(!player.getIsAlive())
             {
-                drawFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]); //Temporary will change
+                drawPlayerFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]); //Temporary will change
             }
 
             if(updatesBeforeNextMoveFrame == 0)
@@ -88,27 +88,27 @@ public class Animator
         {
             if(!player.getIsAlive())
             {
-                drawFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]); //Temporary will change
+                drawPlayerFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]); //Temporary will change
             }
             if(player.getJump())
             {
-                drawFrame(canvas, gameDisplay, player, SpriteArray[IdxJump]);
+                drawPlayerFrame(canvas, gameDisplay, player, SpriteArray[IdxJump]);
             }
             else
             {
-                drawFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]);
+                drawPlayerFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]);
             }
         }
         else
         {
-            drawFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]);
+            drawPlayerFrame(canvas, gameDisplay, player, SpriteArray[idxIdle]);
         }
     }
 
     /*************************************Draw Enemy One Animations************************************/
     public void drawEnemyOne(Canvas canvas, GameDisplay gameDisplay, Enemy enemy)
     {
-        drawFrame(canvas, gameDisplay, enemy, SpriteArray[idxMovingFrame]);
+        drawEnemyFrame(canvas, gameDisplay, enemy, SpriteArray[idxMovingFrame]);
 
         if(idxMovingFrame == 1)
             idxMovingFrame = 2;
@@ -132,11 +132,19 @@ public class Animator
     }
     /*************************************Draw Frame Function******************************************/
     //Draw the Frame that the Animator will be using
-    public void drawFrame(Canvas canvas, GameDisplay gameDisplay, Player player, Sprite sprite)
+    public void drawPlayerFrame(Canvas canvas, GameDisplay gameDisplay, Player player, Sprite sprite)
     {
         sprite.draw(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(player.getPositionX())
                         - sprite.getWidth()/2,
                 (int) gameDisplay.gameToDisplayCoordinatesY(player.getPositionY())
+                        - sprite.getHeight()/2);
+    }
+
+    public void drawEnemyFrame(Canvas canvas, GameDisplay gameDisplay, Enemy enemy, Sprite sprite)
+    {
+        sprite.draw(canvas,(int) gameDisplay.gameToDisplayCoordinatesX(enemy.getPositionX())
+                        - sprite.getWidth()/2,
+                (int) gameDisplay.gameToDisplayCoordinatesY(enemy.getPositionY())
                         - sprite.getHeight()/2);
     }
 }
