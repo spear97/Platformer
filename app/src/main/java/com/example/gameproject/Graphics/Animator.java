@@ -32,7 +32,7 @@ public class Animator
     public void drawPlayer(Canvas canvas, GameDisplay gameDisplay, Player player)
     {
         //Allow for Character to Move
-        if((player.getJoystick().getActuatorX() > 0 || player.getJoystick().getActuatorX() < 0) && player.canMove)
+        if((player.getJoystick().getActuatorX() > 0 || player.getJoystick().getActuatorX() < 0))
         {
             if(player.getJoystick().getActuatorX() < 0)
             {
@@ -84,7 +84,7 @@ public class Animator
             }
         }
         //Keep Player in an Idle Position
-        else if(player.getJoystick().getActuatorX() == 0 && player.canMove)
+        else if(player.getJoystick().getActuatorX() == 0)
         {
             if(!player.getIsAlive())
             {

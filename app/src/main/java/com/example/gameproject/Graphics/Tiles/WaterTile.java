@@ -13,6 +13,7 @@ public class WaterTile extends Tile
     public WaterTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
         sprite = spriteSheet.getWaterSprite();
+        setType(TileType.WATER_TILE);
     }
 
     @Override

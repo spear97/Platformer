@@ -8,10 +8,6 @@ import com.example.gameproject.Graphics.SpriteSheet;
 
 public abstract class Tile
 {
-
-    public Rect mapLocationRect;
-    public static int type;
-
     public enum TileType
     {
         DIRT_TILE, // 0
@@ -19,10 +15,11 @@ public abstract class Tile
         SKY_TILE, // 2
         WATER_TILE // 3
     }
+    public Rect mapLocationRect;
+    private TileType type;
 
     public Tile(Rect mapLocationRect)
     {
-
         this.mapLocationRect = mapLocationRect;
     }
 
@@ -41,6 +38,13 @@ public abstract class Tile
             default:
                 return null;
         }
+    }
+
+    public void setType(TileType type){this.type = type;}
+
+    public TileType getType()
+    {
+        return type;
     }
 
     public abstract void draw(Canvas canvas);

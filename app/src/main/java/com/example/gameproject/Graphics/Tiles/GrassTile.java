@@ -12,6 +12,7 @@ public class GrassTile extends Tile {
     public GrassTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
         sprite = spriteSheet.getGrassSprite();
+        setType(TileType.GRASS_TILE);
     }
 
     @Override

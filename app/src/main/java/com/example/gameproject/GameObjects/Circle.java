@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-import com.example.gameproject.Graphics.Sprite;
-import com.example.gameproject.Graphics.Tiles.SkyTile;
 import com.example.gameproject.Graphics.Tiles.Tile;
 import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.Infrastructure.GameDisplay;
@@ -20,7 +18,6 @@ public abstract class Circle extends GameObject
     protected Paint paint;
     protected Tilemap world;
     protected List<Tile> tiles;
-    private SkyTile sky;
 
     public Circle(Context context, int color, double positionX, double positionY, double radius, Tilemap world)
     {
@@ -51,46 +48,6 @@ public abstract class Circle extends GameObject
         else
             return false;
     }
-
-    public Tile getTileCollision(Sprite sprite, double newX, double newY)
-    {
-        double fromX = Math.min(getPositionX(), newX);
-        double fromY = Math.min(getPositionY(), newY);
-        double toX = Math.max(getPositionX(), newX);
-        double toY = Math.max(getPositionY(), newY);
-
-        // get the tile locations
-        int fromTileX = (int)(TILE_WIDTH_PIXELS*fromX);
-        int fromTileY = (int)(TILE_HEIGHT_PIXELS*fromY);
-        int toTileX = (int)(TILE_WIDTH_PIXELS*(toX + sprite.getWidth() - 1));
-        int toTileY = (int)(TILE_HEIGHT_PIXELS*(toY + sprite.getHeight() - 1));
-
-        // check each tile for a collision
-        Tile[][] tilemap = world.getTileMap();
-        for (int x=fromTileX; x<=toTileX; x++) {
-            for (int y=fromTileY; y<=toTileY; y++) {
-                if (x < 0 || x >= tilemap[0].length || world.getTile(x, y) != sky)
-                {
-                    // collision found, return the tile
-                    return world.getTile(x, y);
-                }
-            }
-        }
-        // no collision found
-        return null;
-    }
-
-    //TODO: Make closestLeftTile
-    //public Tile getclosestLeftTile(Sprite sprite, double newX, double newY) {return null;}
-
-    //TODO: Make closestTopTile
-    //public Tile getclosestTopTile(Sprite sprite, double newX, double newY) {return null;}
-
-    //TODO: Make closestRightTile
-    //public Tile closestRightTile(Sprite sprite, double newX, double newY) {return null;}
-
-    //TODO: Make closestBottomTile
-    //public Tile closestBottomTile(Sprite sprite, double newX, double newY) {return null;}
 
    /* public static boolean gravity(Circle obj1, Circle obj2){
         if(collisionDown == false) {

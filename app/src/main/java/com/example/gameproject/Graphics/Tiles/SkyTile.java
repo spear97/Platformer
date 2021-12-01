@@ -12,6 +12,7 @@ public class SkyTile extends Tile {
     public SkyTile(SpriteSheet spriteSheet, Rect mapLocationRect) {
         super(mapLocationRect);
         sprite = spriteSheet.getSkySprite();
+        setType(TileType.SKY_TILE);
     }
 
     @Override
