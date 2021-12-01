@@ -10,12 +10,12 @@ import com.example.gameproject.GameObjects.Player;
 import com.example.gameproject.R;
 
 //Refactor to make it Scoring Class
-public class Performance
+public class Scoring
 {
     private GameLoop gameLoop;
     private Context context;
 
-    public Performance(Context context, GameLoop gameLoop)
+    public Scoring(Context context, GameLoop gameLoop)
     {
         this.context = context;
         this.gameLoop = gameLoop;
@@ -24,29 +24,16 @@ public class Performance
     //Draw Performance Metrics to the Screen
     public void draw(Canvas canvas)
     {
-        drawUPS(canvas);
-        drawFPS(canvas);
+        drawScore(canvas);
     }
 
     //Draw UPS(Units Per Second) to the Screen
-    public void drawUPS(Canvas canvas)
+    public void drawScore(Canvas canvas)
     {
-        String averageUPS = Double.toString(gameLoop.getAverageUPS());
         Paint paint = new Paint();
         int color = ContextCompat.getColor(context, R.color.white);
         paint.setColor(color);
         paint.setTextSize(50);
-        canvas.drawText("UPS: " + averageUPS, 100, 100, paint);
-    }
-
-    //Draw FPS(Frames Per Second) to the Screen
-    public void drawFPS(Canvas canvas)
-    {
-        String averageFPS = Double.toString(gameLoop.getAverageFPS());
-        Paint paint = new Paint();
-        int color = ContextCompat.getColor(context, R.color.white);
-        paint.setColor(color);
-        paint.setTextSize(50);
-        canvas.drawText("FPS: " + averageFPS, 100, 200, paint);
+        canvas.drawText("Score: 0  Lives: 3", 100, 100, paint);
     }
 }

@@ -27,7 +27,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 {
     private final Tilemap tilemap;
     private final GameOver gameOver;
-    private final Performance performance;
+    private final Scoring scoring;
     private final Player player;
     private final Enemy enemy;
     private final GameDisplay gameDisplay;
@@ -54,7 +54,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         gameLoop = new GameLoop(surfaceHolder, this);
 
         // Initialize UI
-        performance = new Performance(context, gameLoop);
+        scoring = new Scoring(context, gameLoop);
         gameOver = new GameOver(context);
         joystick = new Joystick(width, height, 150, 75);
 
@@ -157,8 +157,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         joystick.draw(canvas);
         player.draw(canvas, gameDisplay);
 
-        performance.drawFPS(canvas);
-        performance.drawUPS(canvas);
+        scoring.drawScore(canvas);
     }
 
     //Update Joystick, Player, and GameDisplay as Game Proceeds to run
