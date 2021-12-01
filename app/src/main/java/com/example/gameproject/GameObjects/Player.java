@@ -69,10 +69,12 @@ public class Player extends Circle
         }
 
         //Allows Player to Jump Up
-        if(velocityY < 0 && canMove)
+       /* if(velocityY < 0 && canMove)
         {
             positionY += velocityY;
-        }
+        }*/
+
+        positionY += velocityY;
 
         // Update direction
         if (velocityX != 0 || velocityY != 0)
