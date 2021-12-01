@@ -7,8 +7,6 @@ import android.graphics.Paint;
 import com.example.gameproject.Graphics.Tiles.Tile;
 import com.example.gameproject.Graphics.Tiles.Tilemap;
 import com.example.gameproject.Infrastructure.GameDisplay;
-import static com.example.gameproject.Graphics.Tiles.MapLayout.TILE_HEIGHT_PIXELS;
-import static com.example.gameproject.Graphics.Tiles.MapLayout.TILE_WIDTH_PIXELS;
 
 import java.util.List;
 
@@ -49,18 +47,26 @@ public abstract class Circle extends GameObject
             return false;
     }
 
-   /* public static boolean gravity(Circle obj1, Circle obj2){
-        if(collisionDown == false) {
-            characterYnext = characterY + fall;          //Get Next Position
-            if(NextMovementCollides()){                  //Basically if next position is too far.
-                characterYnext += difference_between(CharacterY,Ground);     //This should move the character to the ground state.
-                fall = 0;                                                   //No longer falling so reset the value.
+   public static boolean gravity(Circle obj1, Circle obj2)
+   {
+       int fall = 128;
+        if(isColliding(obj1, obj2) == false)
+        {
+            double characterYnext = obj1.positionY + fall;          //Get Next Position
+            //Basically if next position is too far.
+            if(true)
+            {
+                //This should move the character to the ground state.
+                fall = 0; //No longer falling so reset the value.
             }
-            else{
-                characterY += fall; fall++;     //Otherwise continue falling like normal.
+            else
+            {
+                obj1.positionY += fall; fall++;     //Otherwise continue falling like normal.
             }
         }
-    }*/
+
+        return true;
+    }
 
     public void draw(Canvas canvas, GameDisplay gameDisplay)
     {
