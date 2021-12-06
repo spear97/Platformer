@@ -29,7 +29,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
     private final GameOver gameOver;
     private final Scoring scoring;
     private final Player player;
-    private final Enemy enemy;
+    private final Enemy enemy1, enemy2, enemy3;
     private final GameDisplay gameDisplay;
     private GameLoop gameLoop;
     private Joystick joystick;
@@ -85,7 +85,11 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
         player = new Player(context, joystick, spawnX, spawnY, 64, playerAnimator, tilemap);
 
         Animator enemy1Animator = new Animator(spriteSheet.getAIOneSpriteArray());
-        enemy = new Enemy(context, player, spawnX, spawnY, 64, enemy1Animator, tilemap);
+        enemy1 = new Enemy(context, player, spawnX+64, spawnY, 64, enemy1Animator, tilemap);
+
+        enemy2 = new Enemy(context, player, spawnX+128, spawnY, 64, enemy1Animator, tilemap);
+
+        enemy3 = new Enemy(context, player, spawnX+256, spawnY, 4, enemy1Animator, tilemap);
 
         // Initialize display and center it around the player
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -156,6 +160,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback
 
         joystick.draw(canvas);
         player.draw(canvas, gameDisplay);
+        enemy1.draw(canvas, gameDisplay);
+        enemy2.draw(canvas, gameDisplay);
+        enemy3.draw(canvas, gameDisplay);
 
         scoring.drawScore(canvas);
     }
